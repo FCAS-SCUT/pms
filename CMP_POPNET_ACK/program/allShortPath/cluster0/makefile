@@ -1,0 +1,19 @@
+OBJS = hello_world.o func.o barrier.o
+#changed at 2019-12-22
+#CC = alpha-unknown-linux-gnu-gcc
+#CC=gcc 
+#CC=alpha-linux-gnu-gcc
+CC = alpha-unknown-linux-gnu-gcc
+
+hello_world.alpha: $(OBJS)
+	$(CC)  -O3 -g3 -w -static  $(OBJS) -o hello_world.alpha -lm
+
+func.o: func.s
+	$(CC) -O3 -g3 -w -static  -c func.s
+hello_world.o: hello_world.c
+	$(CC) -O3 -g3 -w -static  -c hello_world.c
+barrier.o: barrier.c
+	$(CC) -O3 -g3 -w -static  -c barrier.c
+
+clean:
+	rm -f *.o hello_world.alpha 

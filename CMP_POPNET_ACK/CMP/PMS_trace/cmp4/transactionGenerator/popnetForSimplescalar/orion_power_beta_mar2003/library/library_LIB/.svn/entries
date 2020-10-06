@@ -1,0 +1,40 @@
+8
+
+dir
+27
+svn://10.13.71.252/CMP/transactionGenerator/popnetForSimplescalar/orion_power_beta_mar2003/library/library_LIB
+svn://10.13.71.252/CMP
+
+
+
+2011-04-19T14:18:55.066750Z
+1
+fanglei
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+57b7a889-21ea-8849-abf0-57a86dec3704
+
+LIB_defines.h
+file
+
+
+
+
+2012-09-28T07:22:22.381021Z
+420c6eea1e51a2a0a843d44310810d4e
+2011-04-19T14:18:55.066750Z
+1
+fanglei
+

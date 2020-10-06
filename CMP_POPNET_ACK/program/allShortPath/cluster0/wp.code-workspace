@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"cstdint": "cpp",
+			"barrier.h": "c",
+			"stdbool.h": "c",
+			"cstdbool": "c",
+			"c++config.h": "c",
+			"tgmath.h": "c"
+		}
+	}
+}

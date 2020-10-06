@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <fstream>
+#include <iostream>
+#include <time.h>  
+#include <algorithm> 
+#include <vector>
+
+using namespace std;
+
+struct vertex{
+	int src;
+	int dst;
+	int weight;	
+};
+
+vector< vertex> V;
+
+bool compare(const vertex &a,const vertex &b)
+{
+	return a.src < b.src;
+}
+
+int main(int argc, char *argv[])
+{
+	int i,j,k;
+	char buf[20];
+	char temp[30];
+
+	srand((unsigned)time(NULL));  
+
+	ofstream Fgraphweight;
+    Fgraphweight.open("vertexWeight.csv");
+		
+	for(i=0; i<100; i++){
+		V[i].src = rand()%100;
+		V[i].dst = rand()%100;
+		V[i].weight = rand()%10;
+	}
+		
+	sort(V.begin(),V.end(),compare);
+			
+	Fgraphweight<<"Source"<<" "<<"Target"<<","<<"Weight"<<endl;
+	
+    for(j=0; j<100; j++)
+		Fgraphweight << V[i].src << " " << V[i].dst << " " << V[i].weight <<endl;
+		
+	Fgraphweight.close();
+		
+	cout<<"The data is generated over!"<<endl;
+
+	return 0; 
+}
+

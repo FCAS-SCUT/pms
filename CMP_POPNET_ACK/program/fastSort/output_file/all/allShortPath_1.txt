@@ -1,0 +1,4 @@
+sim_cycle= 35162	sim_num_insn=20001	Progress=2%	data_packets_generate=2959
+sim_cycle= 52190	sim_num_insn=40001	Progress=4%	data_packets_generate=1272
+sim_cycle= 72576	sim_num_insn=60000	Progress=6%	data_packets_generate=1112
+sim_cycle= 148152	sim_num_insn=80002	Progress=8%	data_packets_generate=477

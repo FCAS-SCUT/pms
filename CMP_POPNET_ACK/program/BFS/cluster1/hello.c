@@ -1,0 +1,289 @@
+#define global
+#include "stdio.h"
+#include "barrier.h"
+#include "stdint.h"
+
+#define NPROC 4
+volatile int CountLock = 0;
+
+#define cmp0_0 0x1ff000000
+#define cmp0_1 0x1ff100000
+#define cmp0_2 0x1ff200000
+#define cmp0_3 0x1ff300000
+#define cmp0_4 0x1ff400000
+#define cmp0_5 0x1ff500000
+#define cmp0_6 0x11fde6f50
+
+#define cmp1_0 0x1ff600000
+#define cmp1_1 0x1ff700000
+#define cmp1_2 0x1ff800000
+#define cmp1_3 0x1ff900000
+#define cmp1_4 0x1ffA00000
+#define cmp1_5 0x1ffB00000
+#define cmp1_6 0x1ffC00000
+#define cmp1_7 0x1ffD00000
+
+#define INF 9999
+#define NODENUM 8
+#define LOCALNUM 4
+#define INITIALNUM 7
+
+volatile int Dist[NODENUM];
+volatile int x[NODENUM][NODENUM];
+
+void ReadFile(char *contents, int c[NODENUM][NODENUM]){
+    int i = 0;
+    int j;
+    int a[3];
+    FILE *fp;
+
+    //initialization
+    for(i=0; i<NODENUM; i++){
+        for(j=0; j<NODENUM; j++){
+            if(i==j) c[i][j] = 0;
+            else  c[i][j] = INF;
+        }
+    }
+    
+    //begin to read file
+    fp=fopen(contents,"r");
+    if (fp == NULL)
+    {
+        printf("open file error\n");
+    }
+    while(!feof(fp))    
+    {
+        char str[1024];
+        memset(a,0,3);
+        char *p;
+        if (fgets(str,sizeof(str),fp)==NULL) break ;
+            p=strtok(str," ");
+            while (p)
+            {
+                //printf("%d\t",atoi(p));
+                a[i] = atoi(p);
+                //printf("%d ",a[i]);
+                i++;
+                p=strtok(NULL," ");
+            }
+                for(i=0;i<3;i++)
+                    printf("%d ",a[i]);
+                    printf("\n");
+
+                if(i == 3) i=0;
+
+        c[a[0]][a[1]]=a[2];
+        c[a[1]][a[0]]=a[2];
+                //printf("%d ",c[a[0]][a[1]]);
+    }
+    printf("\n");
+    fclose(fp);
+	for(i=0; i<NODENUM; i++){
+        for(j=0; j<NODENUM; j++){
+            if(i==j) c[i][j] = 0;
+        }
+    }
+}
+
+void CulculateMin(int node, int dist[NODENUM], int c[NODENUM][NODENUM]){
+	int *localAddress0 = (int *)cmp1_2;
+    int tmp[NODENUM];
+    int i;
+    for(i=0;i<NODENUM;i++)//initial the tmp[]
+        tmp[i] = INF;
+    for(i=0; i<NODENUM; i++){
+         if(c[node][i]+dist[i] < tmp[node-(NODENUM-LOCALNUM)]){
+		    tmp[node-(NODENUM-LOCALNUM)]= c[node][i] + dist[i];
+        }
+    }
+	*(localAddress0+(node-(NODENUM-LOCALNUM))) = tmp[node-(NODENUM-LOCALNUM)];
+}
+void QuickSort(int left,int right,int a[NODENUM]) 
+{ 
+	int i,j,t,temp; 
+	if(left>right) return; 
+	                                
+	temp=a[left]; 
+	i=left; 
+	j=right; 
+	while(i!=j) 
+	{ 
+		while(a[j]>=temp && i<j) j--; 
+		while(a[i]<=temp && i<j) i++; 
+		if(i<j) 
+		{ 
+			t=a[i]; 
+			a[i]=a[j]; 
+			a[j]=t; 
+		}
+	}
+    a[left]=a[i]; 
+	a[i]=temp; 
+    QuickSort(left,i-1,a);
+    QuickSort(i+1,right,a);
+} 
+
+void PrintResult(int dist[NODENUM]){
+    int i;
+	for(i=0;i<NODENUM;i++){
+            printf("%d\t",dist[i]);
+        }
+        printf("\n");	
+    fflush(stdout);
+}
+void ReceiveData(int dist[NODENUM]){
+	int i;
+    int *receiveAddress0= (int *)cmp1_0;
+    receiveAddress0++;
+    printf("The ReceiveData is:\n");
+	for(i=0; i<NODENUM-LOCALNUM; i++){
+	    dist[i] = *(receiveAddress0++);
+        printf("%d\t",dist[i]);
+    }
+    printf("\n");
+
+}
+
+void Wait(int a){
+	int *receiveSignal0= (int *)cmp1_0;
+    //*receiveSignal0 = 0;//receive signal
+    MTA_printresult();
+	while(*receiveSignal0!=a){
+         MTA_acquiesce(receiveSignal0);
+    }	
+    MTA_printresult();
+}
+
+
+void InitialDist(int dist[NODENUM],int destNo){
+    int i;
+    for(i=0; i<NODENUM; i++){
+        dist[i] = INF;
+    }
+    dist[destNo] = 0;
+}
+
+void WriteFile(char *contents,int array[],int n)
+{
+	FILE *fp;
+	int i=0;
+    printf("Write file is beginning...\n");
+    fflush(stdout);
+	fp=fopen(contents,"w");
+	while(i<n)
+	{
+        fprintf(fp,"%d ",array[i]);
+		i++;
+	}
+	fclose(fp);
+    printf("Write file is over...\n");
+    fflush(stdout);
+}
+
+int main()
+{
+	unsigned ProcessId = 0;
+	int my_id = 0;
+    int i,j,cnt = 0;
+    ReadFile("./input.txt",x);//read file
+    for(i=0;i<NODENUM;i++){
+            for(j=0;j<NODENUM;j++){
+                   printf("%d ", x[i][j]);
+            }
+            printf("\n");
+    }
+
+    //iialization of Dist[] is:\n");
+    InitialDist(Dist,INITIALNUM);
+   
+    printf("The initial Dist is:\n");
+    for(i=0; i<NODENUM;i++)
+    {
+        printf("%d\t",Dist[i]);
+    } 
+	barrier_init(NPROC);
+	for(ProcessId = 1;ProcessId < NPROC; ProcessId++)
+    {
+		my_id = MTA_fork();
+		printf("loop %d after fork %d\n",ProcessId,my_id);
+		my_id = MTA_getthreadID();
+		printf("loop %d after MTA_getthreadID %d\n",ProcessId,my_id);
+		if(my_id != 0)		break;
+	}    
+	MTA_Bar_Stats(1);
+	barrier(MTA_getthreadID() , NPROC);
+	MTA_Bar_Stats(0);	
+
+	MTA_Stats(1);
+	{
+		my_id = MTA_getthreadID();
+		//printf("come on after fork %d.\n",my_id);
+
+		int i,j,k;
+		int *otherAddress0  =   (int *)cmp0_0;
+		int *otherSignal0   =   (int *)cmp0_5;
+		int *localAddress1  =   (int *)cmp1_2;
+		int *localAddress2  =   (int *)cmp1_2;
+		int *localAddress3  =   (int *)cmp1_3;
+		int *localAddress4  =   (int *)cmp1_3;
+		
+		int *localSignal0= (int *)cmp1_4;
+		*localSignal0 = 8000;//send signal
+
+		for(k=0; k<NODENUM; k++){
+            if(my_id == 0)
+            {
+			    printf("***************This is the %dth loop.*****************\n",k);
+            }
+
+			CulculateMin(my_id+(NODENUM-LOCALNUM), Dist, x);//culculate the minimize
+			
+			MTA_Bar_Stats(1);
+			barrier(MTA_getthreadID() , NPROC);
+			MTA_Bar_Stats(0);
+			
+			Dist[my_id+(NODENUM-LOCALNUM)] = *(localAddress1+my_id);
+	        
+			MTA_Bar_Stats(1);
+			barrier(MTA_getthreadID() , NPROC);
+			MTA_Bar_Stats(0);
+
+			if(my_id == 1){
+				*localAddress3 = *localSignal0;
+                for(i=1; i<=LOCALNUM; i++)
+                     *(localAddress3+i) = *(localAddress2+(i-1));
+				printf("Data from cluster0 send to cluster1.\n");
+				MTA_mailboxsend(1,localAddress4,0,otherAddress0,LOCALNUM+1,1);//send the data    
+				//MTA_mailboxsend(1,localSignal0,0,otherSignal0,1,1);//send signal
+				printf("Cluster0 sending is over!\n"); 	
+				ReceiveData(Dist);//receive the other Dist[]			
+				Wait((*localSignal0)++);//wait
+				//printf("I received the signal.\n");
+            }
+
+            MTA_Bar_Stats(0);
+            barrier(MTA_getthreadID() , NPROC);
+            MTA_Bar_Stats(0);
+
+        }
+        if(my_id == 0){
+            QuickSort(0,NODENUM-1,Dist);
+            printf("**********print the time info*******************\n");
+            MTA_printresult();
+        }
+        if(my_id == 1){
+            printf("The simulation result is:\n");
+            PrintResult(Dist);
+		    WriteFile("./output.txt",Dist,NODENUM);
+        }
+	}
+	MTA_Bar_Stats(1);
+	barrier(MTA_getthreadID() , NPROC);
+	MTA_Bar_Stats(0);
+	MTA_Stats(0);
+	while(1);
+}
+
+	
+
+	

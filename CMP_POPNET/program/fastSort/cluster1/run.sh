@@ -1,0 +1,1 @@
+/home/w/huarzail/CMP_POPNET/CMP/cmp1/sim-outorder -redir:sim /home/w/huarzail/CMP_POPNET/program/cluster1/result/hello.txt -redir:dump /home/w/huarzail/CMP_POPNET/program/cluster1/result/hello.out -config /home/w/huarzail/ALPHA_CMP/CMP_SIM_standard/run/config_mesh_ooo33 -max:barrier 0 -max:inst 10000000 /home/w/huarzail/CMP_POPNET/program/cluster1/hello.BNC

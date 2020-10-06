@@ -1,0 +1,19 @@
+file
+#echo cluster0
+./program/cluster0/run.sh;exec bash;
+#echo cluster1
+./program/cluster1/run.sh;exec bash;
+#echo cluster2
+./program/cluster2/run.sh;exec bash;
+#echo cluster3
+./program/cluster3/run.sh;exec bash;
+
+foo="TRUE"
+while 	[ "$foo" = "TRUE" ];	do
+	if [ -s sync_0_net.txt ] && [ -s sync_1_net.txt ] && [ -s sync_2_net.txt ] && [ -s sync_3_net.txt ]; then
+		foo="FALSE"
+	else foo="TRUE"
+	fi
+done
+#echo popnet
+./POPNET/popnet/run.sh;exec bash;

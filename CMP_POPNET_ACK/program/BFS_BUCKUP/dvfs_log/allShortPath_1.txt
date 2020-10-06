@@ -1,0 +1,410 @@
+sim-outorder: SimpleScalar/Alpha Tool Set version 3.0 of November, 2000.
+Copyright (c) 1994-2000 by Todd M. Austin.  All Rights Reserved.
+This version of SimpleScalar is licensed for academic non-commercial use only.
+
+sim: command line: /home/w/huarzail/CMP_POPNET/CMP/PMS_dvfs/cmp1/sim-outorder -redir:sim ../dvfs_log/allShortPath_1.txt -redir:dump ../dvfs_log/allShortPath_1.out -read_file ../../../pt_net_1.txt -write_file ../../../pt_net_in.txt -write_file_backup ../../../pt_net_in_backup.txt -sorted:router ../input_file/noc/allShortPath_1.sorted -sorted:processor ../input_file/processor/allShortPath_1.sorted -sorted:l2 ../input_file/memory/allShortPath.sorted_1 -output:cycle ../output_file/all/allShortPath_1.txt -config config_mesh_ooo_xy_dvfs -max:barrier 0 -max:inst 1000000 hello.BNC 
+Run on localhost.localdomain
+initializing context 0
+thread 0 hello
+sim: command line: /home/w/huarzail/CMP_POPNET/CMP/PMS_dvfs/cmp1/sim-outorder -redir:sim ../dvfs_log/allShortPath_1.txt -redir:dump ../dvfs_log/allShortPath_1.out -read_file ../../../pt_net_1.txt -write_file ../../../pt_net_in.txt -write_file_backup ../../../pt_net_in_backup.txt -sorted:router ../input_file/noc/allShortPath_1.sorted -sorted:processor ../input_file/processor/allShortPath_1.sorted -sorted:l2 ../input_file/memory/allShortPath.sorted_1 -output:cycle ../output_file/all/allShortPath_1.txt -config config_mesh_ooo_xy_dvfs -max:barrier 0 -max:inst 1000000 hello.BNC 
+Run on localhost.localdomain
+
+sim: main.c compiled on May 20 2015 at 09:40:35 with gcc version 4.1.2 20080704 (Red Hat 4.1.2-52)
+sim: simulation started @ Thu May 21 16:00:53 2015, options follow:
+
+sim-outorder: This simulator implements a very detailed out-of-order issue
+superscalar processor with a two-level memory system and speculative
+execution support.  This simulator is a performance simulator, tracking the
+latency of all pipeline operations.
+
+-config                     # load configuration from a file
+-dumpconfig                 # dump configuration to a file
+-h                    false # print help message    
+-v                    false # verbose operation     
+-d                    false # enable debug message  
+-i                    false # start in Dlite debugger
+-seed                       1 # random number generator seed (0 for timer seed)
+-q                    false # initialize and terminate immediately
+-redir:sim     ../dvfs_log/allShortPath_1.txt # redirect simulator output to file (non-interactive only)
+-redir:dump    ../dvfs_log/allShortPath_1.out # redirect simulated program output to file
+-nice                       0 # simulator scheduling priority
+-max:inst             1000000 # maximum number of inst's to execute/thread
+-max:barrier                0 # maximum number of barriers to execute
+-network:meshsize            8 # mesh size of the network
+-freq:proc                  1 # the init frequency of processor
+-freq:router                1 # the init frequency of router
+-freq:l2                    1 # the init frequency of l2
+-random:proc            false # random processor frequency
+-random:router          false # random router frequency
+-random:l2              false # random router frequency
+-row                        1 # the region row        
+-col                        1 # the region col        
+-sharer:read_en             1 # sharer read enable    
+-inform_back:total_en            1 # inform back en        
+-tlb:class_coarse            0 # tlb class coarse      
+-multi_blk:set_shift            0 # multi blk set shift   
+-multi_blk:adap_en            0 # multi blk adaptive    
+-multi_blk_adap:pain_en            0 # multi blk adap pain en
+-multi_blk_adap:inform_en            0 # multi blk adap inform en
+-multi_blk_adap:repl_ad_en            0 # multi blk adap repl ad en
+-multi_blk_adap:recall_ad_en            0 # multi blk adap recall ad en
+-pvc:vector_num             8 # pvc vector num        
+-pvc:sharer_threshold            8 # pvc sharer threshold  
+-pvc:nv_broadcast            0 # pvc non-vector broadcast
+-prefetch:L2_En             0 # enable L2 prefetch    
+-prefetch:L1_En             0 # enable L1 prefetch    
+-STREAM:min                 0 # STREAM & min          
+-STREAM:L2_distance           16 # STREAM_L2_distance    
+-STREAM:min_distance           16 # STREAM_min_distance   
+-ptrace              <null> # generate pipetrace, i.e., <fname|stdout|stderr> <range>
+-fetch:ifqsize              4 # instruction fetch queue size (in insts)
+-fetch:mplat                5 # extra branch mis-prediction latency
+-fetch:speed                1 # speed of front-end of machine relative to execution core
+-bpred                   comb # branch predictor type {nottaken|taken|perfect|bimod|2lev|comb|2bcgskew}
+-bpred:btb_use_masterid         true # use masterid in place of threadid when interacting with BTB, giving you per-process instead of per-thread entries
+-bpred:bimod     4096 # bimodal predictor config (<table size>)
+-bpred:2lev      1 8192 13 1 # 2-level predictor config (<l1size> <l2size> <hist_size> <xor>)
+-bpred:comb      8192 # combining predictor config (<meta_table_size>)
+-disp1                      0 # 2bcgskew table displacement for lev 1
+-disp2                      0 # 2bcgskew table displacement for lev 2
+-bpred:2bcgskew  32768 32768 0 22 4 4 # 2Bc-gskew predictor config (<bim_size> <size> <bim_hist_size> <g0_hist_size> <g1_hist_size> <meta_hist_size>)
+-bpred:ras                 32 # return address stack size (0 for no return stack)
+-bpred:btb       4096 4 # BTB config (<num_sets> <associativity>)
+-bpred:spec_update       <null> # speculative predictors update in {ID|WB} (default non-spec)
+-decode:width               4 # instruction decode B/W (insts/cycle)
+-thrdf:limit                8 # Number of thread fetch (thrd/cycle<=8)
+-instthrdf:width            4 # instruction fetch B/w per thread (insts/cycle<=decode_width)
+-ipregf:size               64 # integer physical register file size (per cluster)
+-fpregf:size               64 # floating point physical register file size (per cluster)
+-iqueue:size               16 # integer queue size (insts) (per cluster)
+-fqueue:size               16 # floating point queue size (insts) (per cluster)
+-issue:width                4 # instruction issue B/W (insts/cluster/cycle)
+-issue:inorder          false # run pipeline with in-order issue
+-issue:wrongpath         true # issue instructions down wrong execution paths
+-commit:width               4 # instruction commit B/W (insts/thread/cycle)
+-ruu:size                  64 # register update unit (RUU) size
+-lsq:size                  32 # load/store queue (LSQ) size (per cluster)
+-lq:size                   16 # load queue (LQ) size  
+-sq:size                   16 # store queue (SQ) size 
+-checker:vdd           0.6000 # checker vdd           
+-checker:freq          0.5000 # checker running at what fraction of full freq
+-cache:dl1       dl1:128:64:2:l # l1 data cache config, i.e., {<config>|none} (each cluster)
+-cache:dl1lat               2 # l1 data cache hit latency (in cycles)
+-cache:ml2       ml2:4096:64:8:l # l2 meta cache config, i.e., {<config>|none}
+-cache:dl2       dl2:4096:64:8:l # l2 data cache config, i.e., {<config>|none}
+-cache:ml2lat               0 # l2 meta cache hit latency (in cycles)
+-cache:dl2lat              15 # l2 data cache hit latency (in cycles)
+-cache:il1       il1:256:64:2:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
+-cache:il1lat               1 # l1 instruction cache hit latency (in cycles)
+-cache:il2                dl2 # l2 instruction cache config, i.e., {<config>|dl2|none}
+-cache:il2lat              15 # l2 instruction cache hit latency (in cycles)
+-cache:flush            false # flush caches on system calls
+-cache:icompress        false # convert 64-bit inst addresses to 32-bit inst equivalents
+-mem:lat         200 12 # memory access latency (<first_chunk> <inter_chunk>)
+-mem:width                 16 # memory access bus width (in bytes)
+-mem:speed            32.0000 # memory access bus speed (in GHz)
+-mem:ports                  8 # memory access port number
+-tlb:itlb        itlb:1:4096:64:l # instruction TLB config, i.e., {<config>|none}
+-tlb:dtlb        dtlb:1:4096:64:l # data TLB config, i.e., {<config>|none}
+-tlb:lat                  250 # inst/data TLB miss latency (in cycles)
+-network:rec_algr            0 # receiver algorism for network
+-network:net_algr            0 # confliction algorism for network
+-res:ialu                   4 # total number of integer ALU's available (per cluster)
+-res:imult                  1 # total number of integer multiplier/dividers available (per cluster)
+-maxThrds                  64 # Maximum Number of Threads Allowed
+-Coherent_Cache          true # Coherent Cache        
+-MSI_prot                true # MSI Protocol          
+-SPEC                   false # SPEC Benchmarks       
+-res:membank                1 # number of data cache banks available (per Cluster to CPU)
+-res:memport                2 # total number of memory system ports available (per bank)
+-res:fpalu                  4 # total number of floating point ALU's available (per cluster)
+-res:fpmult                 1 # total number of floating point multiplier/dividers available (per cluster)
+-pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
+-bugcompat              false # operate in backward-compatible bugs mode (for testing only)
+-hotspot:sampling_intvl        10000 # how many cycles between calls to update_hotspot_stats
+-ray:disabled               1 # ray active            
+-sorted:router   ../input_file/noc/allShortPath_1.sorted # frequency level of routers
+-output:cycle    ../output_file/all/allShortPath_1.txt # cycle output          
+-sorted:processor ../input_file/processor/allShortPath_1.sorted # frequency level of processors
+-sorted:l2       ../input_file/memory/allShortPath.sorted_1 # frequency level of L2 blocks
+-n_way                      1 # number of clusters assigned to a thread
+-n_way_cache                1 # number of cluster caches assigned to a thread
+-n_way_adjacent         false # Assigns starting threads at theadid * n_way instead of CLUSTERS/numthreads * threadid (well the min of the two choices when true)
+-uni-lat-comm           false # All communications take 1 cycle if from 2 different nodes
+-two-lat-comm           false # All communications take 2 cycle if from 2 different nodes (1 cycle for adjacent)
+-link:type           <null> # The link definitions, 'name:type:width:hoptime:physics' with type like 'ER' and physics of 'electrical' or 'optical'
+-link:custom         <null> # Custom link destination definition, 'name:to0,to1,...' with toi = -1 for no link, specifyig where the link goes from each core.
+-fe_link_time              -1 # Fixed time for a cluster node to communicate with the FE. If negative, it will use a noncongested electrical network instead.
+-hotspot:flp   /home/vax2/u27/xue/CMP_baseline/run/floorplan.flp # floorplan file (.flp))
+-hotspot:init        <null> # hotspot temperature initialization file
+-hotspot:steady  hotspot.out # hotspot temperature steady-state (output) file
+-hotspot:t_interface      30.0000 # hotspot thermal interface material (thermal paste) thickness, in microns
+-hotspot:dump_freq           30 # one in this many calls to update_hotspot_stats will print current temps
+-hotspot:base_proc_freq 2500000000.0000 # base processor frequency in Hz
+-hotspot:active        false # Turns HotSpot on      
+-network                 MESH # network type {FSOI|MESH|COMB|HYBRID}
+-network:intercfg         FSOI # inter chip network config {FSOI|MESH}
+-network:intracfg         MESH # intra chip network config {FSOI|MESH}
+-network:chipnum            4 # number of chips in whole system
+-network:input_buffer_size           48 # input buffer size (flit unit)
+-network:output_buffer_size           16 # output buffer size (flit unit)
+-network:output_ports            1 # output buffer ports   
+-network:packet_queue_size          256 # packet queue size (packet unit, used for output buffer)
+-network:meta_receivers            2 # total number of receivers for meta packets
+-network:data_receivers            2 # total number of receivers for data packets
+-network:transmitters            1 # total numbers of transmitters
+-network:confirmation_trans            1 # number of confirmation transmitters
+-network:confirmation_receiver            1 # number of confirmation receiver
+-network:laser_cycle           12 # laser cycle (1 CPU cycle)
+-network:meta_transmitter_size            6 # how many bits can be transfered in one laser cycle
+-network:data_transmitter_size            6 # how many bits can be transfered in one laser cycle
+-network:flit_size           72 # flit size (bits)      
+-network:data_packet_size            5 # Data packet size      
+-network:meta_packet_size            1 # meta packet size      
+-network:confirmation_bit            1 # confirmation bit      
+-network:laser_warmup_time            1 # laser warm up time    
+-network:laser_setup_time            1 # laser set up time     
+-network:laser_switchoff_timeout            1 #                       
+-network:data_chan_timeslot            1 #                       
+-network:meta_chan_timeslot            1 #                       
+-network:exp_backoff            1 #                       
+-network:first_slot_num       3.0000 #                       
+-network:retry_algr            0 #                       
+-network:TBEB_algr            0 #                       
+-network:confirmation_time            1 #                       
+-mesh_network:buffer_size           12 #                       
+-mesh_network:outbuffer_size            1 #                       
+-mesh_network:mesh_flit_size           64 #                       
+-mesh_network:vc_num            1 #                       
+-mesh_network:routing_algr            0 #                       
+-mesh_network:phit_size           64 #                       
+-read_file       ../../../pt_net_1.txt #                       
+-write_file      ../../../pt_net_in.txt #                       
+-write_file_backup ../../../pt_net_in_backup.txt #                       
+
+####### Network configuration #######
+
+Optical interconnect
+
+Popnet interconnect
+
+Confirmation based optimazation for Invalidation
+
+Write back split in network level
+
+Inorder probability-based scheduling (IRD)
+
+Ordering by addr
+
+###### network configuration end ######
+
+  Pipetrace range arguments are formatted as follows:
+
+    {{@|#}<start>}:{{@|#|+}<end>}
+
+  Both ends of the range are optional, if neither are specified, the entire
+  execution is traced.  Ranges that start with a `@' designate an address
+  range to be traced, those that start with an `#' designate a cycle count
+  range.  All other range values represent an instruction count range.  The
+  second argument, if specified with a `+', indicates a value relative
+  to the first argument, e.g., 1000:+100 == 1000:1100.  Program symbols may
+  be used in all contexts.
+
+    Examples:   -ptrace FOO.trc #0:#1000
+                -ptrace BAR.trc @2000:
+                -ptrace BLAH.trc :1500
+                -ptrace UXXE.trc :
+                -ptrace FOOBAR.trc @main:+278
+
+  Branch predictor configuration examples for 2-level predictor:
+    Configurations:   N, M, W, X
+      N   # entries in first level (# of shift register(s))
+      W   width of shift register(s)
+      M   # entries in 2nd level (# of counters, or other FSM)
+      X   (yes-1/no-0) xor history and address for 2nd level index
+    Sample predictors:
+      GAg     : 1, W, 2^W, 0
+      GAp     : 1, W, M (M > 2^W), 0
+      PAg     : N, W, 2^W, 0
+      PAp     : N, W, M (M == 2^(N+W)), 0
+      gshare  : 1, W, 2^W, 1
+  Predictor `comb' combines a bimodal and a 2-level predictor.
+
+  The cache config parameter <config> has the following format:
+
+    <name>:<nsets>:<bsize>:<assoc>:<repl>
+
+    <name>   - name of the cache being defined
+    <nsets>  - number of sets in the cache
+    <bsize>  - block size of the cache
+    <assoc>  - associativity of the cache
+    <repl>   - block replacement strategy, 'l'-LRU, 'f'-FIFO, 'r'-random
+
+    Examples:   -cache:dl1 dl1:4096:32:1:l
+                -dtlb dtlb:128:4096:32:r
+
+  Cache levels can be unified by pointing a level of the instruction cache
+  hierarchy at the data cache hiearchy using the "dl1" and "dl2" cache
+  configuration arguments.  Most sensible combinations are supported, e.g.,
+
+    A unified l2 cache (il2 is pointed at dl2):
+      -cache:il1 il1:128:64:1:l -cache:il2 dl2
+      -cache:dl1 dl1:256:32:1:l -cache:dl2 ul2:1024:64:2:l
+
+    Or, a fully unified cache hierarchy (il1 pointed at dl1):
+      -cache:il1 dl1
+      -cache:dl1 ul1:256:32:1:l -cache:dl2 ul2:1024:64:2:l
+
+
+
+Issueq size   - int 16 fp 16
+rename Pregfile size - int 64 fp 64
+CLUSTERS 64
+ROWCOUNT 4
+CENTRAL_CACHE 0
+CENTRALCACHELAT 0
+CACHELOC 0
+PRED_BR_CHANGES 0
+PRED_JR_CHANGES 0
+DYNAMIC_CHANGE 0
+METRIC_CHANGE 0
+LINEAR_PHASE 0
+SMALLEST_CONFIG 64
+GRID 0
+CACHEPORTS 64
+RES_CACHEPORTS 64
+READY_COMM 1
+HOLY_REGS 0
+NUM_H_REGS 3
+COPY_THRESH 50
+FIRST_FIT 0
+FIRST_FIT_ENFORCE 0
+FIRST_VAL 10000
+STEER_ENFORCE 0
+MOD_N 0
+MOD_N_N 8
+FIRST_MOD 0
+GROUPSIZE 4
+MOD_N_T 2
+ANYWILLDO 1
+NEIGHBOR_SEEK 32
+PICKMIDDLE 0
+MIDTHRESH 16
+HOPTIME 1
+COMM_LATENCY 32
+CACHE_REFILL_LAT 0
+MPRED_COMM_LAT 0
+LD_PROXIMITY 0
+LDPROX_FACTOR 256
+STEER_2NONREADY 0
+STEER_CRITICAL 0
+ILOAD_MIN 1
+IFACTOR 4
+RLOAD_MIN 1
+RFACTOR 1
+DEP_FACTOR 64
+LD_FACTOR 0
+IQBUF 0
+REGFREE 0
+FREE_CURR_REGS 0
+FREE_INTERVAL 1
+DISPDELAY 0
+RING_BW 1
+TIMEWINDOW 5000
+ST_ADDR_COMM 1
+ST_RING_BW 1
+RING_IC 1
+IGNORE_COMM_LATENCY 1
+TOL_COUNT 0
+STOREDELAY 1
+BANKPRED 1
+BANKMISPREDLAT 1
+BANKP_SPEC 0
+LEV1SIZE 1024
+LEV2SIZE 4096
+XORSIZE 12
+WORD_INTERLEAVED 0
+WORDSIZE 8
+SORT 0
+NUMPHASES 64
+MIN_INSN_INT 10000
+STOP_EXPL_THRESH -5
+ILPTAGCHECK 1
+DISTILP 120
+DISTILPTHRESH 30
+SAMPLETHRESH 10
+BR_INT 8
+ITABLESIZE 16384
+OWINDOWSIZE 360
+ILPCLEARINT 10000000
+STATPRINT 0
+CYCNOISE 10
+NUMCYCTHRESH 5
+STATINT 10000
+FREE_REG_THRESH 4000
+TABLE2SIZE 4096
+TABLESIZE 4096
+Thread 0, sim: ** fast forwarding 0 insts **
+Context 0 Allocating thread ID at 1: 0
+Context 0 Allocating thread ID at 2: 0
+Context 0 Allocating thread ID at 3: 0
+Context 0 Allocating thread ID at 4: 0
+Context 0 Allocating thread ID at 5: 0
+Context 0 Allocating thread ID at 6: 0
+Context 0 Allocating thread ID at 7: 0
+Context 0 Allocating thread ID at 8: 0
+Context 0 Allocating thread ID at 9: 0
+Context 0 Allocating thread ID at 10: 0
+Context 0 Allocating thread ID at 11: 0
+Context 0 Allocating thread ID at 12: 0
+Context 0 Allocating thread ID at 13: 0
+Context 0 Allocating thread ID at 14: 0
+Context 0 Allocating thread ID at 15: 0
+Context 0 Allocating thread ID at 16: 0
+Context 0 Allocating thread ID at 17: 0
+Context 0 Allocating thread ID at 18: 0
+Context 0 Allocating thread ID at 19: 0
+Context 0 Allocating thread ID at 20: 0
+Context 0 Allocating thread ID at 21: 0
+Context 0 Allocating thread ID at 22: 0
+Context 0 Allocating thread ID at 23: 0
+Context 0 Allocating thread ID at 24: 0
+Context 0 Allocating thread ID at 25: 0
+Context 0 Allocating thread ID at 26: 0
+Context 0 Allocating thread ID at 27: 0
+Context 0 Allocating thread ID at 28: 0
+Context 0 Allocating thread ID at 29: 0
+Context 0 Allocating thread ID at 30: 0
+Context 0 Allocating thread ID at 31: 0
+Context 0 Allocating thread ID at 32: 0
+Context 0 Allocating thread ID at 33: 0
+Context 0 Allocating thread ID at 34: 0
+Context 0 Allocating thread ID at 35: 0
+Context 0 Allocating thread ID at 36: 0
+Context 0 Allocating thread ID at 37: 0
+Context 0 Allocating thread ID at 38: 0
+Context 0 Allocating thread ID at 39: 0
+Context 0 Allocating thread ID at 40: 0
+Context 0 Allocating thread ID at 41: 0
+Context 0 Allocating thread ID at 42: 0
+Context 0 Allocating thread ID at 43: 0
+Context 0 Allocating thread ID at 44: 0
+Context 0 Allocating thread ID at 45: 0
+Context 0 Allocating thread ID at 46: 0
+Context 0 Allocating thread ID at 47: 0
+Context 0 Allocating thread ID at 48: 0
+Context 0 Allocating thread ID at 49: 0
+Context 0 Allocating thread ID at 50: 0
+Context 0 Allocating thread ID at 51: 0
+Context 0 Allocating thread ID at 52: 0
+Context 0 Allocating thread ID at 53: 0
+Context 0 Allocating thread ID at 54: 0
+Context 0 Allocating thread ID at 55: 0
+Context 0 Allocating thread ID at 56: 0
+Context 0 Allocating thread ID at 57: 0
+Context 0 Allocating thread ID at 58: 0
+Context 0 Allocating thread ID at 59: 0
+Context 0 Allocating thread ID at 60: 0
+Context 0 Allocating thread ID at 61: 0
+Context 0 Allocating thread ID at 62: 0
+Context 0 Allocating thread ID at 63: 0

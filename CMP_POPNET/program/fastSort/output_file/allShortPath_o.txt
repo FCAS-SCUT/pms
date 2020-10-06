@@ -1,0 +1,8 @@
+sim_cycle= 34306	sim_num_insn=20002	Progress=2%	data_packets_generate=2734
+sim_cycle= 34353	sim_num_insn=20000	Progress=2%	data_packets_generate=2891
+sim_cycle= 57471	sim_num_insn=40004	Progress=4%	data_packets_generate=1856
+sim_cycle= 61568	sim_num_insn=40000	Progress=4%	data_packets_generate=2003
+sim_cycle= 60712	sim_num_insn=60000	Progress=6%	data_packets_generate=331
+sim_cycle= 65304	sim_num_insn=60004	Progress=6%	data_packets_generate=472
+sim_cycle= 77151	sim_num_insn=80000	Progress=8%	data_packets_generate=787
+sim_cycle= 81992	sim_num_insn=80015	Progress=8%	data_packets_generate=729

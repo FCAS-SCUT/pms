@@ -1,0 +1,51 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/media/zhc/DATA/workplace/PMS/CMP_POPNET_ACK/CMP/PMS_trace/cmp0/sim-outorder",
+            "args": [
+                "-redir:sim",
+                "../../../program/allShortPath/cluster0/result/test_allShortPath.txt",
+                "-redir:dump",
+                "../../../program/allShortPath/cluster0/result/test_allShortPath.txt.out",
+                "-read_file",
+                "../../../pt_net_0.txt",
+                "-write_file",
+                "../../../pt_net_in.txt -write_file_backup ../../../pt_net_in_backup.txt",
+                "-flow_trace",
+                "../../../program/allShortPath/trace/flow_allShortPath_0.txt",
+                "-router_trace",
+                "../../../program/allShortPath/trace/router_allShortPath_0.txt",
+                "-cpu:trace",
+                "../../../program/allShortPath/trace/cpu_allShortPath_0.txt",
+                "-L2:trace",
+                "../../../program/allShortPath/trace/L2_allShortPath_0.txt",
+                "-config",
+                "../../../program/allShortPath/cluster0/config_mesh_ooo_xy_org",
+                "-max:barrier",
+                "0",
+                "-max:inst",
+                "100000000000",
+                "../../../program/allShortPath/cluster0/hello.BNC"
+            ],
+            "stopAtEntry": false,
+            "cwd": "/media/zhc/DATA/workplace/PMS/CMP_POPNET_ACK/program/allShortPath/cluster0",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

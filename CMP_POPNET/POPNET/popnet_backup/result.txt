@@ -1,0 +1,752 @@
+****************configuration********************
+ary size:2
+cube dimension:2
+virtual channel number:3
+buffer size:12
+outbuffer size:12
+flit size:4
+link length:1000
+simulation length:20000
+trace file:./test.txt
+Routing algorithm:0
+****************configuration********************
+Current time: 0Current time: 0Current time: 2.13457e-317 Incoming packets0 Finished packets0
+**************************************************
+total finished:       0
+average Delay:        nan
+total mem power:      0
+total crossbar power: 0
+total arbiter power:  0
+total link power:     0
+total power:          0
+**************************************************
+Current time: 2.13457e-317Current time: 500Current time: 1000Current time: 1500Current time: 2000Current time: 2001 Incoming packets23 Finished packets23
+**************************************************
+total finished:       23
+average Delay:        18.913
+total mem power:      0.14828
+total crossbar power: 0.00831768
+total arbiter power:  1.35464e-05
+total link power:     0.0133634
+total power:          0.169974
+**************************************************
+Current time: 2500Current time: 3000Current time: 3500Current time: 4000Current time: 4001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0776015
+total crossbar power: 0.00431508
+total arbiter power:  6.99487e-06
+total link power:     0.00693144
+total power:          0.088855
+**************************************************
+Current time: 4500Current time: 5000Current time: 5500Current time: 6000Current time: 6001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0517386
+total crossbar power: 0.00287696
+total arbiter power:  4.66364e-06
+total link power:     0.00462134
+total power:          0.0592416
+**************************************************
+Current time: 6500Current time: 7000Current time: 7500Current time: 8000Current time: 8001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0388056
+total crossbar power: 0.00215781
+total arbiter power:  3.49787e-06
+total link power:     0.00346615
+total power:          0.044433
+**************************************************
+Current time: 8500Current time: 9000Current time: 9500Current time: 9686Current time: 10000Current time: 10001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0310452
+total crossbar power: 0.00172629
+total arbiter power:  2.79837e-06
+total link power:     0.00277299
+total power:          0.0355473
+**************************************************
+Current time: 10500Current time: 11000Current time: 11500Current time: 12000Current time: 12001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0258715
+total crossbar power: 0.0014386
+total arbiter power:  2.33201e-06
+total link power:     0.00231086
+total power:          0.0296233
+**************************************************
+Current time: 12500Current time: 13000Current time: 13500Current time: 14000Current time: 14001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0221758
+total crossbar power: 0.0012331
+total arbiter power:  1.99889e-06
+total link power:     0.00198076
+total power:          0.0253917
+**************************************************
+Current time: 14500Current time: 15000Current time: 15500Current time: 16000Current time: 16001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.019404
+total crossbar power: 0.00107897
+total arbiter power:  1.74905e-06
+total link power:     0.00173318
+total power:          0.0222179
+**************************************************
+Current time: 16500Current time: 17000Current time: 17500Current time: 18000Current time: 18001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0172481
+total crossbar power: 0.000959092
+total arbiter power:  1.55472e-06
+total link power:     0.00154062
+total power:          0.0197494
+**************************************************
+Current time: 18500Current time: 19000Current time: 19500Current time: 19686Current time: 20000Current time: 20001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0155234
+total crossbar power: 0.000863188
+total arbiter power:  1.39925e-06
+total link power:     0.00138656
+total power:          0.0177745
+**************************************************
+Current time: 20500Current time: 21000Current time: 21500Current time: 22000Current time: 22001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0141122
+total crossbar power: 0.00078472
+total arbiter power:  1.27206e-06
+total link power:     0.00126052
+total power:          0.0161588
+**************************************************
+Current time: 22500Current time: 23000Current time: 23500Current time: 24000Current time: 24001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0129363
+total crossbar power: 0.000719329
+total arbiter power:  1.16605e-06
+total link power:     0.00115548
+total power:          0.0148122
+**************************************************
+Current time: 24500Current time: 25000Current time: 25500Current time: 26000Current time: 26001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0119412
+total crossbar power: 0.000663998
+total arbiter power:  1.07636e-06
+total link power:     0.0010666
+total power:          0.0136729
+**************************************************
+Current time: 26500Current time: 27000Current time: 27500Current time: 28000Current time: 28001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0110883
+total crossbar power: 0.000616572
+total arbiter power:  9.99482e-07
+total link power:     0.000990418
+total power:          0.0126963
+**************************************************
+Current time: 28500Current time: 29000Current time: 29500Current time: 29686Current time: 30000Current time: 30001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0103491
+total crossbar power: 0.000575468
+total arbiter power:  9.32852e-07
+total link power:     0.000924392
+total power:          0.0118499
+**************************************************
+Current time: 30500Current time: 31000Current time: 31500Current time: 32000Current time: 32001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0097023
+total crossbar power: 0.000539503
+total arbiter power:  8.7455e-07
+total link power:     0.000866619
+total power:          0.0111093
+**************************************************
+Current time: 32500Current time: 33000Current time: 33500Current time: 34000Current time: 34001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0091316
+total crossbar power: 0.000507768
+total arbiter power:  8.23108e-07
+total link power:     0.000815643
+total power:          0.0104558
+**************************************************
+Current time: 34500Current time: 35000Current time: 35500Current time: 36000Current time: 36001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0086243
+total crossbar power: 0.000479559
+total arbiter power:  7.77381e-07
+total link power:     0.000770331
+total power:          0.00987497
+**************************************************
+Current time: 36500Current time: 37000Current time: 37500Current time: 38000Current time: 38001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0081704
+total crossbar power: 0.00045432
+total arbiter power:  7.36467e-07
+total link power:     0.000729788
+total power:          0.00935525
+**************************************************
+Current time: 38500Current time: 39000Current time: 39500Current time: 39686Current time: 40000Current time: 40001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00776189
+total crossbar power: 0.000431605
+total arbiter power:  6.99645e-07
+total link power:     0.0006933
+total power:          0.0088875
+**************************************************
+Current time: 40500Current time: 41000Current time: 41500Current time: 42000Current time: 42001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00739229
+total crossbar power: 0.000411053
+total arbiter power:  6.66329e-07
+total link power:     0.000660286
+total power:          0.00846429
+**************************************************
+Current time: 42500Current time: 43000Current time: 43500Current time: 44000Current time: 44001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00705628
+total crossbar power: 0.000392369
+total arbiter power:  6.36042e-07
+total link power:     0.000630274
+total power:          0.00807956
+**************************************************
+Current time: 44500Current time: 45000Current time: 45500Current time: 46000Current time: 46001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00674949
+total crossbar power: 0.00037531
+total arbiter power:  6.08389e-07
+total link power:     0.000602871
+total power:          0.00772828
+**************************************************
+Current time: 46500Current time: 47000Current time: 47500Current time: 48000Current time: 48001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00646827
+total crossbar power: 0.000359672
+total arbiter power:  5.8304e-07
+total link power:     0.000577752
+total power:          0.00740628
+**************************************************
+Current time: 48500Current time: 49000Current time: 49500Current time: 49686Current time: 50000Current time: 50001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00620954
+total crossbar power: 0.000345285
+total arbiter power:  5.59718e-07
+total link power:     0.000554643
+total power:          0.00711003
+**************************************************
+Current time: 50500Current time: 51000Current time: 51500Current time: 52000Current time: 52001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00597072
+total crossbar power: 0.000332006
+total arbiter power:  5.38191e-07
+total link power:     0.000533311
+total power:          0.00683658
+**************************************************
+Current time: 52500Current time: 53000Current time: 53500Current time: 54000Current time: 54001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00574959
+total crossbar power: 0.000319709
+total arbiter power:  5.18259e-07
+total link power:     0.000513559
+total power:          0.00658337
+**************************************************
+Current time: 54500Current time: 55000Current time: 55500Current time: 56000Current time: 56001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00554425
+total crossbar power: 0.000308291
+total arbiter power:  4.9975e-07
+total link power:     0.000495218
+total power:          0.00634826
+**************************************************
+Current time: 56500Current time: 57000Current time: 57500Current time: 58000Current time: 58001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00535307
+total crossbar power: 0.000297661
+total arbiter power:  4.82517e-07
+total link power:     0.000478142
+total power:          0.00612936
+**************************************************
+Current time: 58500Current time: 59000Current time: 59500Current time: 59686Current time: 60000Current time: 60001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00517464
+total crossbar power: 0.000287739
+total arbiter power:  4.66434e-07
+total link power:     0.000462204
+total power:          0.00592505
+**************************************************
+Current time: 60500Current time: 61000Current time: 61500Current time: 62000Current time: 62001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00500772
+total crossbar power: 0.000278457
+total arbiter power:  4.51388e-07
+total link power:     0.000447294
+total power:          0.00573392
+**************************************************
+Current time: 62500Current time: 63000Current time: 63500Current time: 64000Current time: 64001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00485123
+total crossbar power: 0.000269755
+total arbiter power:  4.37282e-07
+total link power:     0.000433316
+total power:          0.00555474
+**************************************************
+Current time: 64500Current time: 65000Current time: 65500Current time: 66000Current time: 66001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00470422
+total crossbar power: 0.000261581
+total arbiter power:  4.24031e-07
+total link power:     0.000420186
+total power:          0.00538641
+**************************************************
+Current time: 66500Current time: 67000Current time: 67500Current time: 68000Current time: 68001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00456587
+total crossbar power: 0.000253888
+total arbiter power:  4.1156e-07
+total link power:     0.000407828
+total power:          0.00522799
+**************************************************
+Current time: 68500Current time: 69000Current time: 69500Current time: 69686Current time: 70000Current time: 70001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00443541
+total crossbar power: 0.000246634
+total arbiter power:  3.99801e-07
+total link power:     0.000396176
+total power:          0.00507862
+**************************************************
+Current time: 70500Current time: 71000Current time: 71500Current time: 72000Current time: 72001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00431221
+total crossbar power: 0.000239783
+total arbiter power:  3.88696e-07
+total link power:     0.000385171
+total power:          0.00493755
+**************************************************
+Current time: 72500Current time: 73000Current time: 73500Current time: 74000Current time: 74001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00419567
+total crossbar power: 0.000233303
+total arbiter power:  3.78191e-07
+total link power:     0.000374761
+total power:          0.00480411
+**************************************************
+Current time: 74500Current time: 75000Current time: 75500Current time: 76000Current time: 76001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00408525
+total crossbar power: 0.000227163
+total arbiter power:  3.68238e-07
+total link power:     0.000364899
+total power:          0.00467769
+**************************************************
+Current time: 76500Current time: 77000Current time: 77500Current time: 78000Current time: 78001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00398051
+total crossbar power: 0.000221338
+total arbiter power:  3.58796e-07
+total link power:     0.000355543
+total power:          0.00455775
+**************************************************
+Current time: 78500Current time: 79000Current time: 79500Current time: 79686Current time: 80000Current time: 80001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00388099
+total crossbar power: 0.000215805
+total arbiter power:  3.49827e-07
+total link power:     0.000346654
+total power:          0.0044438
+**************************************************
+Current time: 80500Current time: 81000Current time: 81500Current time: 82000Current time: 82001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00378634
+total crossbar power: 0.000210542
+total arbiter power:  3.41294e-07
+total link power:     0.000338199
+total power:          0.00433542
+**************************************************
+Current time: 82500Current time: 83000Current time: 83500Current time: 84000Current time: 84001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00369619
+total crossbar power: 0.000205529
+total arbiter power:  3.33168e-07
+total link power:     0.000330147
+total power:          0.0042322
+**************************************************
+Current time: 84500Current time: 85000Current time: 85500Current time: 86000Current time: 86001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00361023
+total crossbar power: 0.000200749
+total arbiter power:  3.2542e-07
+total link power:     0.000322469
+total power:          0.00413377
+**************************************************
+Current time: 86500Current time: 87000Current time: 87500Current time: 88000Current time: 88001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00352818
+total crossbar power: 0.000196187
+total arbiter power:  3.18025e-07
+total link power:     0.000315141
+total power:          0.00403983
+**************************************************
+Current time: 88500Current time: 89000Current time: 89500Current time: 89686Current time: 90000Current time: 90001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00344978
+total crossbar power: 0.000191827
+total arbiter power:  3.10957e-07
+total link power:     0.000308138
+total power:          0.00395005
+**************************************************
+Current time: 90500Current time: 91000Current time: 91500Current time: 92000Current time: 92001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00337478
+total crossbar power: 0.000187657
+total arbiter power:  3.04198e-07
+total link power:     0.000301439
+total power:          0.00386418
+**************************************************
+Current time: 92500Current time: 93000Current time: 93500Current time: 94000Current time: 94001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00330298
+total crossbar power: 0.000183664
+total arbiter power:  2.97725e-07
+total link power:     0.000295025
+total power:          0.00378197
+**************************************************
+Current time: 94500Current time: 95000Current time: 95500Current time: 96000Current time: 96001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00323417
+total crossbar power: 0.000179838
+total arbiter power:  2.91523e-07
+total link power:     0.000288879
+total power:          0.00370318
+**************************************************
+Current time: 96500Current time: 97000Current time: 97500Current time: 98000Current time: 98001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00316817
+total crossbar power: 0.000176168
+total arbiter power:  2.85573e-07
+total link power:     0.000282984
+total power:          0.0036276
+**************************************************
+Current time: 98500Current time: 99000Current time: 99500Current time: 99686Current time: 100000Current time: 100001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.0031048
+total crossbar power: 0.000172644
+total arbiter power:  2.79862e-07
+total link power:     0.000277324
+total power:          0.00355505
+**************************************************
+Current time: 100500Current time: 101000Current time: 101500Current time: 102000Current time: 102001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00304393
+total crossbar power: 0.000169259
+total arbiter power:  2.74375e-07
+total link power:     0.000271886
+total power:          0.00348535
+**************************************************
+Current time: 102500Current time: 103000Current time: 103500Current time: 104000Current time: 104001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00298539
+total crossbar power: 0.000166004
+total arbiter power:  2.69098e-07
+total link power:     0.000266658
+total power:          0.00341832
+**************************************************
+Current time: 104500Current time: 105000Current time: 105500Current time: 106000Current time: 106001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00292906
+total crossbar power: 0.000162872
+total arbiter power:  2.64021e-07
+total link power:     0.000261627
+total power:          0.00335382
+**************************************************
+Current time: 106500Current time: 107000Current time: 107500Current time: 108000Current time: 108001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00287482
+total crossbar power: 0.000159856
+total arbiter power:  2.59132e-07
+total link power:     0.000256782
+total power:          0.00329172
+**************************************************
+Current time: 108500Current time: 109000Current time: 109500Current time: 109686Current time: 110000Current time: 110001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00282255
+total crossbar power: 0.00015695
+total arbiter power:  2.5442e-07
+total link power:     0.000252113
+total power:          0.00323187
+**************************************************
+Current time: 110500Current time: 111000Current time: 111500Current time: 112000Current time: 112001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00277215
+total crossbar power: 0.000154147
+total arbiter power:  2.49877e-07
+total link power:     0.000247611
+total power:          0.00317416
+**************************************************
+Current time: 112500Current time: 113000Current time: 113500Current time: 114000Current time: 114001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00272352
+total crossbar power: 0.000151443
+total arbiter power:  2.45493e-07
+total link power:     0.000243267
+total power:          0.00311847
+**************************************************
+Current time: 114500Current time: 115000Current time: 115500Current time: 116000Current time: 116001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00267656
+total crossbar power: 0.000148832
+total arbiter power:  2.41261e-07
+total link power:     0.000239073
+total power:          0.0030647
+**************************************************
+Current time: 116500Current time: 117000Current time: 117500Current time: 118000Current time: 118001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00263119
+total crossbar power: 0.000146309
+total arbiter power:  2.37172e-07
+total link power:     0.000235021
+total power:          0.00301276
+**************************************************
+Current time: 118500Current time: 119000Current time: 119500Current time: 119686Current time: 120000Current time: 120001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00258734
+total crossbar power: 0.000143871
+total arbiter power:  2.33219e-07
+total link power:     0.000231104
+total power:          0.00296255
+**************************************************
+Current time: 120500Current time: 121000Current time: 121500Current time: 122000Current time: 122001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00254493
+total crossbar power: 0.000141512
+total arbiter power:  2.29396e-07
+total link power:     0.000227315
+total power:          0.00291398
+**************************************************
+Current time: 122500Current time: 123000Current time: 123500Current time: 124000Current time: 124001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00250388
+total crossbar power: 0.00013923
+total arbiter power:  2.25696e-07
+total link power:     0.000223649
+total power:          0.00286698
+**************************************************
+Current time: 124500Current time: 125000Current time: 125500Current time: 126000Current time: 126001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00246413
+total crossbar power: 0.00013702
+total arbiter power:  2.22113e-07
+total link power:     0.000220099
+total power:          0.00282148
+**************************************************
+Current time: 126500Current time: 127000Current time: 127500Current time: 128000Current time: 128001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00242563
+total crossbar power: 0.000134879
+total arbiter power:  2.18643e-07
+total link power:     0.00021666
+total power:          0.00277739
+**************************************************
+Current time: 128500Current time: 129000Current time: 129500Current time: 129686Current time: 130000Current time: 130001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00238832
+total crossbar power: 0.000132804
+total arbiter power:  2.15279e-07
+total link power:     0.000213327
+total power:          0.00273466
+**************************************************
+Current time: 130500Current time: 131000Current time: 131500Current time: 132000Current time: 132001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00235213
+total crossbar power: 0.000130792
+total arbiter power:  2.12017e-07
+total link power:     0.000210095
+total power:          0.00269323
+**************************************************
+Current time: 132500Current time: 133000Current time: 133500Current time: 134000Current time: 134001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00231702
+total crossbar power: 0.000128839
+total arbiter power:  2.08853e-07
+total link power:     0.000206959
+total power:          0.00265303
+**************************************************
+Current time: 134500Current time: 135000Current time: 135500Current time: 136000Current time: 136001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00228295
+total crossbar power: 0.000126945
+total arbiter power:  2.05781e-07
+total link power:     0.000203915
+total power:          0.00261402
+**************************************************
+Current time: 136500Current time: 137000Current time: 137500Current time: 138000Current time: 138001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00224986
+total crossbar power: 0.000125105
+total arbiter power:  2.02799e-07
+total link power:     0.00020096
+total power:          0.00257613
+**************************************************
+Current time: 138500Current time: 139000Current time: 139500Current time: 139686Current time: 140000Current time: 140001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00221772
+total crossbar power: 0.000123318
+total arbiter power:  1.99902e-07
+total link power:     0.000198089
+total power:          0.00253933
+**************************************************
+Current time: 140500Current time: 141000Current time: 141500Current time: 142000Current time: 142001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00218649
+total crossbar power: 0.000121581
+total arbiter power:  1.97087e-07
+total link power:     0.000195299
+total power:          0.00250357
+**************************************************
+Current time: 142500Current time: 143000Current time: 143500Current time: 144000Current time: 144001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00215612
+total crossbar power: 0.000119892
+total arbiter power:  1.94349e-07
+total link power:     0.000192587
+total power:          0.00246879
+**************************************************
+Current time: 144500Current time: 145000Current time: 145500Current time: 146000Current time: 146001 Incoming packets24 Finished packets24
+**************************************************
+total finished:       24
+average Delay:        18.5
+total mem power:      0.00212658
+total crossbar power: 0.00011825
+total arbiter power:  1.91687e-07
+total link power:     0.000189949
+total power:          0.00243497
+**************************************************

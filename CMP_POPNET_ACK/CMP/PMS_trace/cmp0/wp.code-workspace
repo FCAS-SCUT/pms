@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"list": "c",
+			"memory": "c",
+			"ostream": "c",
+			"system_error": "c",
+			"vector": "c",
+			"xhash": "c",
+			"xlocale": "c",
+			"xlocinfo": "c",
+			"xlocnum": "c",
+			"xloctime": "c",
+			"xmemory": "c",
+			"xstddef": "c",
+			"xstring": "c",
+			"*.rh": "c",
+			"*.def": "c",
+			"headers.h": "c"
+		}
+	}
+}

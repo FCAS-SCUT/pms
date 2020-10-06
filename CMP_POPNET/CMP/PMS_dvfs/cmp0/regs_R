@@ -1,0 +1,909 @@
+./dlite.c:	    regs->regs_PC, regs->regs_NPC);
+./dlite.c:  md_print_iregs(regs->regs_R, stdout);
+./dlite.c:  md_print_fpregs(regs->regs_F, stdout);
+./dlite.c:  md_print_cregs(regs->regs_C, stdout);
+./dlite.c:	    regs->regs_PC, regs->regs_NPC);
+./dlite.c:  md_print_iregs(regs->regs_R, stdout);
+./eio.c:      input_regs->as_list.head =
+./eio.c:	exo_chain(input_regs->as_list.head, MD_IREG_TO_EXO(regs, i));
+./eio.c:  output_regs->as_list.head =
+./eio.c:	exo_chain(output_regs->as_list.head,
+./eio.c:  output_regs->as_list.head =
+./eio.c:	exo_chain(output_regs->as_list.head,
+./eio.c:      output_regs->as_list.head =
+./eio.c:	exo_chain(output_regs->as_list.head, MD_IREG_TO_EXO(regs, i));
+./eio.c:		/* PC */exo_new(ec_address, (exo_integer_t)regs->regs_PC),
+./eio.c:      || exo_inregs->ec != ec_list
+./eio.c:      || !(exo_inmem = exo_inregs->next)
+./eio.c:      || exo_outregs->ec != ec_list
+./eio.c:      || !(exo_outmem = exo_outregs->next)
+./eio.c:  if (regs->regs_PC != (md_addr_t)exo_pc->as_integer.val)
+./eio.c:  for (i=MD_FIRST_IN_REG, regrec=exo_inregs->as_list.head;
+./eio.c:  brkrec = exo_outregs->as_list.head;
+./eio.c:  for (i=MD_FIRST_OUT_REG, regrec=exo_outregs->as_list.head->next;
+./loader.c:      current->ld_environ_base = regs->regs_R[MD_REG_SP];
+./loader.c:      current->ld_prog_entry = regs->regs_PC;
+./loader.c:    regs->regs_R[MD_REG_GP] = MD_SWAPQ(ahdr.gp_value);
+./loader.c:  regs->regs_R[MD_REG_A0] = temp;
+./loader.c:  regs->regs_R[MD_REG_A1] = argv_addr;
+./loader.c:  current->ld_stack_min = regs->regs_R[MD_REG_SP];
+./loader.c:  regs->regs_R[MD_REG_SP] = current->ld_environ_base;
+./loader.c:  regs->regs_PC = current->ld_prog_entry;
+./loader.c://  for (i = 0; i < 66 /*NUM_REGS*/; i++) regs->regs_R[i] = 0;
+./loader.c://  regs->regs_PC = current->ld_prog_entry;
+./loader.c://  regs->regs_R[30] = stack_min;
+./loader.c://  regs->regs_R[16] = argc_value;
+./loader.c://  regs->regs_R[17] = argv_array_base;
+./loader.c://  regs->regs_R[18] = envp_array_base;
+./machine.c:	  val->value.as_qword = regs->regs_R[reg];
+./machine.c:	regs->regs_R[reg] = eval_as_qword(*val);
+./machine.c:	  val->value.as_qword = regs->regs_F.q[reg];
+./machine.c:	regs->regs_F.q[reg] = eval_as_qword(*val);
+./machine.c:	  val->value.as_double = regs->regs_F.d[reg];
+./machine.c:	regs->regs_F.d[reg] = eval_as_double(*val);
+./machine.c:	      val->value.as_qword = regs->regs_C.fpcr;
+./machine.c:	    regs->regs_C.fpcr = eval_as_qword(*val);
+./machine.c:	      val->value.as_qword = regs->regs_C.uniq;
+./machine.c:	    regs->regs_C.uniq = eval_as_qword(*val);
+./machine.c:	  val->value.as_addr = regs->regs_PC;
+./machine.c:	regs->regs_PC = eval_as_addr(*val);
+./machine.c:	  val->value.as_addr = regs->regs_NPC;
+./machine.c:	regs->regs_NPC = eval_as_addr(*val);
+./machine.c:    checksum ^= regs->regs_R[i];
+./machine.c:    checksum ^= regs->regs_F.q[i];
+./machine.c:  checksum ^= regs->regs_C.fpcr;
+./machine.c:  checksum ^= regs->regs_C.uniq;
+./machine.c:  checksum ^= regs->regs_PC;
+./machine.c:  checksum ^= regs->regs_NPC;
+./regs.c:  /* regs->regs_R[MD_SP_INDEX] and regs->regs_PC initialized by loader... */
+./syscall.c:    qword_t syscode = regs->regs_R[MD_REG_V0];
+./syscall.c:    threadid = regs->threadid;
+./syscall.c:	syscode = regs->regs_R[MD_REG_A0];
+./syscall.c://	    md_addr_t sc_addr = regs->regs_R[MD_REG_A0];
+./syscall.c://	    regs->regs_NPC = sc.sc_pc;
+./syscall.c://		regs->regs_R[i] = sc.sc_regs[i];
+./syscall.c://		regs->regs_F.q[i] = sc.sc_fpregs[i];
+./syscall.c://	    regs->regs_C.fpcr = sc.sc_fpcr;
+./syscall.c:	  md_addr_t sc_addr = regs->regs_R[MD_REG_A0];
+./syscall.c:	  regs->regs_NPC = sc.sc_pc;
+./syscall.c:	    regs->regs_R[i] = sc.sc_regs[i];
+./syscall.c:	    regs->regs_F.q[i] = sc.sc_fpregs[i];
+./syscall.c:	  regs->regs_C.fpcr = sc.sc_fpcr;
+./syscall.c:  uint64_t syscall_code = regs->regs_R[R_V0];
+./syscall.c:	flag = regs->regs_R[R_A0];
+./syscall.c:		data_int = regs->regs_R[R_A1];
+./syscall.c:		ptr = regs->regs_R[R_A0];
+./syscall.c:		dst_addr = (md_addr_t)regs->regs_R[R_A2];
+./syscall.c:		data_int = regs->regs_R[R_A1];
+./syscall.c:		ptr = regs->regs_R[R_A2];
+./syscall.c:		sr_addr = (md_addr_t)regs->regs_R[R_A0];
+./syscall.c:		data_int = regs->regs_R[R_A2];
+./syscall.c:		ptr = regs->regs_R[R_A1];
+./syscall.c:		dst_cmp = regs->regs_R[R_A0];
+./syscall.c:		//dst_addr = (md_addr_t)regs->regs_R[R_A3];		
+./syscall.c:		data_int = regs->regs_R[R_A2];
+./syscall.c:		ptr = regs->regs_R[R_A1];
+./syscall.c:		dst_cmp = regs->regs_R[R_A0];
+./syscall.c:		dst_addr = (md_addr_t)regs->regs_R[R_A3];
+./syscall.c:		 /* exitcode + fudge */ (regs->regs_R[MD_REG_A0] & 0xff) + 1);
+./syscall.c:        int64_t fd = regs->regs_R[R_A0];
+./syscall.c:        uint64_t vaddr = regs->regs_R[R_A1];
+./syscall.c:        int64_t count = regs->regs_R[R_A2];
+./syscall.c:        int64_t fd = regs->regs_R[R_A0];
+./syscall.c:        uint64_t vaddr = regs->regs_R[R_A1];
+./syscall.c:        int64_t count = regs->regs_R[R_A2];
+./syscall.c:        if (regs->regs_R[R_A0] > 2)
+./syscall.c:          res = close(regs->regs_R[R_A0]);
+./syscall.c:        uint64_t pathname_ptr = regs->regs_R[R_A0];
+./syscall.c:	delta = regs->regs_R[MD_REG_A0];
+./syscall.c:	regs->regs_R[MD_REG_V0] = ld_brk_point;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:        addr = ROUND_UP(/*base*/regs->regs_R[MD_REG_A0], MD_PAGE_SIZE);
+./syscall.c:        addr = /*base*/regs->regs_R[MD_REG_A0];
+./syscall.c:	regs->regs_R[MD_REG_V0] = ld_brk_point;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:/*	if (regs->regs_R[R_A0] == 0)
+./syscall.c:          _system.brk_point = regs->regs_R[R_A0];
+./syscall.c:        int64_t fd = regs->regs_R[R_A0];
+./syscall.c:        uint64_t offset = regs->regs_R[R_A1];
+./syscall.c:        int64_t whence = regs->regs_R[R_A2];
+./syscall.c:        regs->regs_R[R_A4] = (uint64_t)geteuid();
+./syscall.c:        uint64_t pathname_ptr = regs->regs_R[R_A0];
+./syscall.c:        uint64_t sim_flags = regs->regs_R[R_A1];
+./syscall.c:        uint64_t mode = regs->regs_R[R_A2];
+./syscall.c:        regs->regs_R[R_A4] = (uint64_t)getegid();
+./syscall.c:        int64_t fd = regs->regs_R[R_A0];
+./syscall.c:        int64_t request = regs->regs_R[R_A1];
+./syscall.c:        uint64_t addr = regs->regs_R[R_A0];
+./syscall.c:        uint64_t length = regs->regs_R[R_A1];
+./syscall.c:        int64_t flags = regs->regs_R[R_A3];
+./syscall.c:        int64_t fd = regs->regs_R[R_A4];
+./syscall.c:        int64_t fd = regs->regs_R[R_A0];
+./syscall.c:        int64_t cmd = regs->regs_R[R_A1];
+./syscall.c:        int64_t fd = regs->regs_R[R_A0];
+./syscall.c:        uint64_t iovptr = regs->regs_R[R_A1];
+./syscall.c:        int64_t iovcnt = regs->regs_R[R_A2];
+./syscall.c:        int fd = regs->regs_R[R_A0];
+./syscall.c:        off_t length = regs->regs_R[R_A1];
+./syscall.c:        uint64_t resource = regs->regs_R[R_A0];
+./syscall.c:        uint64_t vaddr = regs->regs_R[R_A1];
+./syscall.c:        uint64_t op = regs->regs_R[R_A0];
+./syscall.c:            //regs->regs_R[R_FPCR] = 0;
+./syscall.c:            vaddr = regs->regs_R[R_A1];
+./syscall.c:		  /*buf*/vaddr, &regs->regs_R[R_FPCR], /*nread*/sizeof(uint64_t), current->id);
+./syscall.c://            memory->bcopy(true, vaddr, &regs->regs_R[R_FPCR], sizeof(uint64_t));
+./syscall.c:        uint64_t op = regs->regs_R[R_A0];
+./syscall.c:            vaddr = regs->regs_R[R_A1];
+./syscall.c:		  /*buf*/vaddr, &(regs->regs_R[R_FPCR]), /*nread*/sizeof(uint64_t), current->id);
+./syscall.c://            memory->bcopy(false, vaddr, &regs->regs_R[R_FPCR], sizeof(uint64_t));
+./syscall.c:        vaddr = regs->regs_R[R_A0];
+./syscall.c:        unsigned long int addr = regs->regs_R[R_A0];
+./syscall.c:        uint64_t old_length = regs->regs_R[R_A1];
+./syscall.c:        uint64_t new_length = regs->regs_R[R_A2];
+./syscall.c:        uint64_t flags = regs->regs_R[R_A3];
+./syscall.c:        uint64_t tvaddr = regs->regs_R[R_A0];
+./syscall.c:        uint64_t tzaddr = regs->regs_R[R_A1];
+./syscall.c:        uint64_t vaddr = regs->regs_R[R_A0];
+./syscall.c:        uint64_t size = regs->regs_R[R_A1];
+./syscall.c:        uint64_t pathname_ptr = regs->regs_R[R_A0];
+./syscall.c:        uint64_t vaddr = regs->regs_R[R_A1];
+./syscall.c:        uint64_t pathname_ptr = regs->regs_R[R_A0];
+./syscall.c:        uint64_t vaddr = regs->regs_R[R_A1];
+./syscall.c:        int fd = regs->regs_R[R_A0];
+./syscall.c:        uint64_t vaddr = regs->regs_R[R_A1];
+./syscall.c:          regs->regs_R[R_V0] = EBADF;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A4] = 0;
+./syscall.c://              regs->regs_R[MD_REG_V0] = current->id;
+./syscall.c:	regs->regs_R[MD_REG_V0] = current->actualid;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	//              regs->regs_R[MD_REG_A4] = 0;
+./syscall.c://      fprintf(stderr, "printf %d...%d\n", current->id, regs->regs_R[MD_REG_A0]);      
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	    collect_stats = regs->regs_R[MD_REG_A0];
+./syscall.c:            current->startReached  = regs->regs_R[MD_REG_A0];
+./syscall.c:	    collect_stats = regs->regs_R[MD_REG_A0];
+./syscall.c:            current->startReached  = regs->regs_R[MD_REG_A0];
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	fastfwd = regs->regs_R[MD_REG_A0];
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	collect_barrier_stats_own[current->id] = regs->regs_R[MD_REG_A0];
+./syscall.c:		barrier_addr = regs->regs_R[MD_REG_A0];
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	collect_lock_stats[current->id] = regs->regs_R[MD_REG_A0];
+./syscall.c:	if (regs->regs_R[MD_REG_A0] == 1)
+./syscall.c:	else if (regs->regs_R[MD_REG_A0] == 0)
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	    regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:		regs->regs_R[MD_REG_V0] = 1;
+./syscall.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:		regs->regs_R[MD_REG_V0] = -1;
+./syscall.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	lock_addr[current->id][lock_tail[current->id]] = regs->regs_R[MD_REG_A0];
+./syscall.c:	printf("threadid %d, lock addr %u\n", current->id, regs->regs_R[MD_REG_A0]);
+./syscall.c:		Barrier_flag[regs->regs_R[MD_REG_A0]] = 1;
+./syscall.c:			Barrier_flag[regs->regs_R[MD_REG_A0]] = 1;
+./syscall.c:		//Lock_id = (regs->regs_R[MD_REG_A0]>>4)%MAXLOCK;
+./syscall.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall.c:		//Lock_id = (regs->regs_R[MD_REG_A0]>>4)%MAXLOCK;
+./syscall.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall.c:/*		fprintf(stderr, "Thread %d is sleeping on %llx\n", current->id, regs->regs_R[MD_REG_A0]);
+./syscall.c:	    quiesceAddrStruct[current->id].address = regs->regs_R[MD_REG_A0];
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = random ();
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	access_mem = regs->regs_R[MD_REG_A0];
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	AddToTheSharedAddrList ((unsigned long long) regs->regs_R[MD_REG_A0], (unsigned int) regs->regs_R[MD_REG_A1]);
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall.c:	warn ("invalid/unimplemented syscall %ld, PC=0x%08p, RA=0x%08p, winging it", syscode, regs->regs_PC, regs->regs_R[MD_REG_RA]);
+./syscall.c:	regs->regs_R[MD_REG_A3] = -1;
+./syscall.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall.c:              regs->regs_R[R_A3] = 0;
+./syscall.c:              regs->regs_R[R_A3] = -1;
+./syscall.c:            regs->regs_R[R_V0] = return_value;
+./syscall.c:            (int)syscode, (int)regs->regs_R[MD_REG_A3],
+./syscall.c:            (int)regs->regs_R[MD_REG_V0]);
+./syscall_old.c:    qword_t syscode = regs->regs_R[MD_REG_V0];
+./syscall_old.c:    threadid = regs->threadid;
+./syscall_old.c:	syscode = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	    md_addr_t sc_addr = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	    regs->regs_NPC = sc.sc_pc;
+./syscall_old.c:		regs->regs_R[i] = sc.sc_regs[i];
+./syscall_old.c:		regs->regs_F.q[i] = sc.sc_fpregs[i];
+./syscall_old.c:	    regs->regs_C.fpcr = sc.sc_fpcr;
+./syscall_old.c:		 /* exitcode + fudge */ (regs->regs_R[MD_REG_A0] & 0xff) + 1);
+./syscall_old.c:	    if (!(buf = (char *) calloc ( /*nbytes */ regs->regs_R[MD_REG_A2], sizeof (char))))
+./syscall_old.c:		if ((regs->regs_R[MD_REG_A0] == 0) && (current->sim_inputfd != 0))
+./syscall_old.c:		    /*nread */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:			      /*nbytes */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:		    /*nread */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:			read ( /*fd */ regs->regs_R[MD_REG_A0], buf,
+./syscall_old.c:			      /*nbytes */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    while ( /*nread */ regs->regs_R[MD_REG_V0] == (qword_t) - 1
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /*buf */ regs->regs_R[MD_REG_A1], buf, /*nread */ regs->regs_R[MD_REG_A2], current->id);
+./syscall_old.c:	    if (!(buf = (char *) calloc ( /*nbytes */ regs->regs_R[MD_REG_A2], sizeof (char))))
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, /*buf */ regs->regs_R[MD_REG_A1], buf, /*nbytes */ regs->regs_R[MD_REG_A2], current->id);
+./syscall_old.c:		/*nwritten */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    fwrite (buf, 1, /*nbytes */ regs->regs_R[MD_REG_A2], current->sim_progfd);
+./syscall_old.c:		/*nwritten */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    fwrite (buf, 1, /*nbytes */ regs->regs_R[MD_REG_A2], sim_progfd);
+./syscall_old.c:		    /*nwritten */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:			write ( /*fd */ regs->regs_R[MD_REG_A0],
+./syscall_old.c:			       buf, /*nbytes */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:		while ( /*nwritten */ regs->regs_R[MD_REG_V0] == (qword_t) - 1
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] == regs->regs_R[MD_REG_A2])
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    buf = malloc ( /* len */ (size_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:			       /* len */ (size_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /* name */ regs->regs_R[MD_REG_A0], buf, /* len */ regs->regs_R[MD_REG_A1], current->id);
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = flock ( /*fd */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:					     /*cmd */ (int) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A1], &a_sock, (int) regs->regs_R[MD_REG_A2], current->id);
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = bind ((int) regs->regs_R[MD_REG_A0], &a_sock, (int) regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    buf_len = regs->regs_R[MD_REG_A2];
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A1], buf, (int) regs->regs_R[MD_REG_A2], current->id);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_A5] > 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A4], &d_sock, (int) regs->regs_R[MD_REG_A5], current->id);
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = sendto ((int) regs->regs_R[MD_REG_A0], buf, (int) regs->regs_R[MD_REG_A2], (int) regs->regs_R[MD_REG_A3], &d_sock, (int) regs->regs_R[MD_REG_A5]);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A1], buf, (int) regs->regs_R[MD_REG_A2], current->id);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_A5] > 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A4], &d_sock, (int) regs->regs_R[MD_REG_A5], current->id);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    buf = (char *) malloc (sizeof (char) * regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A1], buf, (int) regs->regs_R[MD_REG_A2], current->id);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, /* serv_addr */ regs->regs_R[MD_REG_A5], &addr_len, sizeof (int), current->id);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A4], a_sock, addr_len, current->id);
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = recvfrom ((int) regs->regs_R[MD_REG_A0], buf, (int) regs->regs_R[MD_REG_A2], (int) regs->regs_R[MD_REG_A3], a_sock, &addr_len);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A1], buf, (int) regs->regs_R[MD_REG_V0], current->id);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /* serv_addr */ regs->regs_R[MD_REG_A5], &addr_len, sizeof (int), current->id);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A4], a_sock, addr_len, current->id);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    int osf_flags = regs->regs_R[MD_REG_A1], local_flags = 0;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fname */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*fd */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		open (buf, local_flags | O_BINARY, /*mode */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    /*fd */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		open (buf, local_flags, /*mode */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	if ( /*fd */ regs->regs_R[MD_REG_A0] == 0
+./syscall_old.c:	    || /*fd */ regs->regs_R[MD_REG_A0] == 1
+./syscall_old.c:	    || /*fd */ regs->regs_R[MD_REG_A0] == 2)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = close ( /*fd */ regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, Read, /*fname */ regs->regs_R[MD_REG_A0], buf);
+./syscall_old.c:	    /*fd */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		creat (buf, /*mode */ regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fname */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] = unlink (buf);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fname */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] = chdir (buf);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fname */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		chmod (buf, /*mode */ regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fname */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		chown (buf, /*owner */ regs->regs_R[MD_REG_A1],
+./syscall_old.c:		       /*group */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    delta = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = current->ld_brk_point;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = ld_brk_point;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    if ( /* addr >= ld_brk_point && */ addr < regs->regs_R[MD_REG_SP])
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    addr = ROUND_UP ( /*base */ regs->regs_R[MD_REG_A0], MD_PAGE_SIZE);
+./syscall_old.c:	    addr = /*base */ regs->regs_R[MD_REG_A0];
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = current->ld_brk_point;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = ld_brk_point;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = lseek ( /*fd */ regs->regs_R[MD_REG_A0],
+./syscall_old.c:					 /*off */ regs->regs_R[MD_REG_A1], /*dir */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] = getpid ();
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	/*first result */ regs->regs_R[MD_REG_V0] = getuid ();
+./syscall_old.c:	/*second result */ regs->regs_R[MD_REG_A4] = geteuid ();
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fName */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		access (buf, /*mode */ regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fName */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] = stat (buf, &sbuf);
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] = lstat (buf, &sbuf);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /*sbuf */ regs->regs_R[MD_REG_A1], &osf_sbuf, sizeof (struct osf_statbuf), current->id);
+./syscall_old.c:	/*fd */ regs->regs_R[MD_REG_V0] = dup ( /*fd */ regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, /*fd's */ regs->regs_R[MD_REG_A0],
+./syscall_old.c:	    /*result */ regs->regs_R[7] = pipe (fd);
+./syscall_old.c:	    /*pipe1 */ regs->regs_R[MD_REG_V0] = fd[0];
+./syscall_old.c:	    /*pipe 2 */ regs->regs_R[3] = fd[1];
+./syscall_old.c:	    if (regs->regs_R[7] == (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		regs->regs_R[7] = 1;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	/*first result */ regs->regs_R[MD_REG_V0] = getgid ();
+./syscall_old.c:	/*second result */ regs->regs_R[MD_REG_A4] = getegid ();
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	switch ( /* req */ regs->regs_R[MD_REG_A1])
+./syscall_old.c:		/* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    tcgetattr ( /* fd */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A2], &buf, sizeof (struct osf_sgttyb), current->id);
+./syscall_old.c:		if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		/* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    ioctl ( /* fd */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A2], &buf, sizeof (struct osf_sgttyb), current->id);
+./syscall_old.c:		if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		/* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    ioctl ( /* fd */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A2], &nread, sizeof (nread), current->id);
+./syscall_old.c:		if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		if (regs->regs_R[MD_REG_A2])
+./syscall_old.c:		    mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A2], &arg, sizeof (arg), current->id);
+./syscall_old.c:		fprintf (stderr, "FIONBIO: %d, %d\n", (int) regs->regs_R[MD_REG_A0], arg);
+./syscall_old.c:		/* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    ioctl ( /* fd */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		if (regs->regs_R[MD_REG_A2])
+./syscall_old.c:		    mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A2], &arg, sizeof (arg), current->id);
+./syscall_old.c:		if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    warn ("unsupported ioctl call: ioctl(%ld, ...)", regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    switch ( /*req */ regs->regs_R[MD_REG_A1])
+./syscall_old.c:		warn ("syscall: ioctl: ioctl code not supported d=%d, req=%d", regs->regs_R[MD_REG_A0], regs->regs_R[MD_REG_A1]);
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:		regs->regs_R[7] = 0;
+./syscall_old.c:		if ( /*argp */ regs->regs_R[MD_REG_A2] != 0)
+./syscall_old.c:		    mem_bcopy (mem_fn, mem, Read, /*argp */ regs->regs_R[MD_REG_A2],
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    ioctl ( /*fd */ regs->regs_R[MD_REG_A0], local_req, buf);
+./syscall_old.c:		if ( /*argp */ regs->regs_R[MD_REG_A2] != 0)
+./syscall_old.c:		    mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A2], buf, NUM_IOCTL_BYTES);
+./syscall_old.c:		if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		    regs->regs_R[7] = 0;
+./syscall_old.c:		    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		    regs->regs_R[7] = 1;
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		fstat ( /*fd */ regs->regs_R[MD_REG_A0], &sbuf);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /*sbuf */ regs->regs_R[MD_REG_A1], &osf_sbuf, sizeof (struct osf_statbuf), current->id);
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = /* was: getpagesize() */ MD_PAGE_SIZE;
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    table_id = regs->regs_R[MD_REG_A1];
+./syscall_old.c:	    table_index = regs->regs_R[MD_REG_A2];
+./syscall_old.c:	    buf_addr = regs->regs_R[MD_REG_A3];
+./syscall_old.c:	    num_elem = regs->regs_R[MD_REG_A4];
+./syscall_old.c:	    size_elem = regs->regs_R[MD_REG_A5];
+./syscall_old.c:			regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:			regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = getdtablesize ();
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = 16;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = 16;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = rl.rlim_cur;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = dup2 ( /*fd1 */ regs->regs_R[MD_REG_A0], /*fd2 */ regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = fcntl ( /*fd */ regs->regs_R[MD_REG_A0],
+./syscall_old.c:					 /*cmd */ regs->regs_R[MD_REG_A1], /*arg */ regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    if ( /*timeval */ regs->regs_R[MD_REG_A0] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, /*timeval */ regs->regs_R[MD_REG_A0], &osf_tv, sizeof (struct osf_timeval), current->id);
+./syscall_old.c:	    if ( /*timezone */ regs->regs_R[MD_REG_A1] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, /*timezone */ regs->regs_R[MD_REG_A1], &osf_tz, sizeof (struct osf_timezone), current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] = gettimeofday (tvp, tzp);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    if ( /*timeval */ regs->regs_R[MD_REG_A0] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A0], &osf_tv, sizeof (struct osf_timeval), current->id);
+./syscall_old.c:	    if ( /*timezone */ regs->regs_R[MD_REG_A1] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A1], &osf_tz, sizeof (struct osf_timezone), current->id);
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /*rusage */ regs->regs_R[MD_REG_A1], &rusage, sizeof (struct osf_rusage), current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		getrusage ( /*who */ regs->regs_R[MD_REG_A0], &local_rusage);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /*rusage */ regs->regs_R[MD_REG_A1], &rusage, sizeof (struct osf_rusage), current->id);
+./syscall_old.c:	regs->regs_R[7] = 0;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fname */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    if ( /*timeval */ regs->regs_R[MD_REG_A1] == 0)
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] = utime (buf, NULL);
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] = utime (buf, NULL);
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] = utimes (buf, NULL);
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A1], osf_tval, 2 * sizeof (struct osf_timeval), current->id);
+./syscall_old.c:		    /* result */ regs->regs_R[MD_REG_V0] = utime (buf, &ubuf);
+./syscall_old.c:		    /* result */ regs->regs_R[MD_REG_V0] = utime (buf, &ubuf);
+./syscall_old.c:		/* result */ regs->regs_R[MD_REG_V0] = utimes (buf, tval);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A1], &osf_rl, sizeof (struct osf_rlimit), current->id);
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    getrlimit (regs->regs_R[MD_REG_A0], &rl);
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = setrlimit (regs->regs_R[MD_REG_A0], &rl);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A1], &osf_rl, sizeof (struct osf_rlimit), current->id);
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = SigMask;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    switch (regs->regs_R[MD_REG_A0])
+./syscall_old.c:		SigMask |= regs->regs_R[MD_REG_A1];
+./syscall_old.c:		SigMask &= ~regs->regs_R[MD_REG_A1];
+./syscall_old.c:		SigMask = regs->regs_R[MD_REG_A1];
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = EINVAL;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 1;
+./syscall_old.c:	    if (regs->regs_R[MD_REG_A2] > /* FIXME: why? */ 0x10000000)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A2], &SigMask, sizeof (SigMask));
+./syscall_old.c:	    if (regs->regs_R[MD_REG_A1] != 0)
+./syscall_old.c:		switch (regs->regs_R[MD_REG_A0])
+./syscall_old.c:		    SigMask |= regs->regs_R[MD_REG_A1];
+./syscall_old.c:		    SigMask &= regs->regs_R[MD_REG_A1];	/* I think */
+./syscall_old.c:		    SigMask = regs->regs_R[MD_REG_A1];	/* I think */
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    signum = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	    if (regs->regs_R[MD_REG_A1] != 0)
+./syscall_old.c:		sigaction_array[signum] = regs->regs_R[MD_REG_A1];
+./syscall_old.c:	    if (regs->regs_R[MD_REG_A2])
+./syscall_old.c:		regs->regs_R[MD_REG_A2] = sigaction_array[signum];
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, /* sc */ regs->regs_R[MD_REG_A0], &sc, sizeof (struct osf_sigcontext), current->id);
+./syscall_old.c:	    regs->regs_NPC = MD_SWAPQ (sc.sc_pc);
+./syscall_old.c:		regs->regs_R[i] = sc.sc_regs[i];
+./syscall_old.c:		regs->regs_F.q[i] = sc.sc_fpregs[i];
+./syscall_old.c:	    regs->regs_C.fpcr = sc.sc_fpcr;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = regs->regs_R[MD_REG_A1];
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	    sword_t fd = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	    md_addr_t osf_buf = regs->regs_R[MD_REG_A1];
+./syscall_old.c:	    sword_t osf_nbytes = regs->regs_R[MD_REG_A2];
+./syscall_old.c:	    md_addr_t osf_pbase = regs->regs_R[MD_REG_A3];
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = getdents ((int) fd, (struct dirent *) buf, (size_t) osf_nbytes);
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = getdirentries ((int) fd, buf, (size_t) osf_nbytes, &base);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		if (regs->regs_R[MD_REG_V0] > 0)
+./syscall_old.c:		    for (i = 0, cnt = 0, osf_cnt = 0, p = (struct dirent *) buf; cnt < regs->regs_R[MD_REG_V0] && p->d_reclen > 0; i++, cnt += p->d_reclen, p = (struct dirent *) (buf + cnt))
+./syscall_old.c:		    regs->regs_R[MD_REG_V0] = osf_cnt;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fname */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		truncate (buf, /* length */ (size_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    ftruncate ( /* fd */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		       /* length */ (size_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_strcpy (mem_fn, mem, Read, /*fName */ regs->regs_R[MD_REG_A0], buf, current->id);
+./syscall_old.c:	    /*result */ regs->regs_R[MD_REG_V0] = statfs (buf, &sbuf);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, regs->regs_R[MD_REG_A1], &osf_sbuf, sizeof (struct osf_statbuf), current->id);
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    setregid ( /* rgid */ (gid_t) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		      /* egid */ (gid_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    setreuid ( /* ruid */ (uid_t) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		      /* euid */ (uid_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	/* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    socket ( /* domain */ xlate_arg ((int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		    /* type */ xlate_arg ((int) regs->regs_R[MD_REG_A1],
+./syscall_old.c:		    /* protocol */ xlate_arg ((int) regs->regs_R[MD_REG_A2],
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    if (regs->regs_R[MD_REG_A2] > sizeof (struct osf_sockaddr))
+./syscall_old.c:		fatal ("sockaddr size overflow: addrlen = %d", regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, regs->regs_R[MD_REG_A1], &osf_sa, (int) regs->regs_R[MD_REG_A2], current->id);
+./syscall_old.c:	    for (i = 0; i < regs->regs_R[MD_REG_A2]; i++)
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		connect ( /* sockfd */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:			 (void *) &osf_sa, /* addrlen */ (int) regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = EPERM;
+./syscall_old.c:	    iov = (struct iovec *) malloc ( /* iovcnt */ regs->regs_R[MD_REG_A2]
+./syscall_old.c:	    for (i = 0; i < /* iovcnt */ regs->regs_R[MD_REG_A2]; i++)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, ( /*iov */ regs->regs_R[MD_REG_A1] + i * sizeof (struct osf_iovec)), &osf_iov, sizeof (struct osf_iovec), current->id);
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    writev ( /* fd */ (int) regs->regs_R[MD_REG_A0], iov,
+./syscall_old.c:			    /* iovcnt */ (size_t) regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    while ( /*result */ regs->regs_R[MD_REG_V0] == (qword_t) - 1
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    for (i = 0; i < /* iovcnt */ regs->regs_R[MD_REG_A2]; i++)
+./syscall_old.c:	    osf_iov = calloc ( /* iovcnt */ regs->regs_R[MD_REG_A2],
+./syscall_old.c:	    iov = calloc ( /* iovcnt */ regs->regs_R[MD_REG_A2], sizeof (struct iovec));
+./syscall_old.c:	    for (i = 0; i < /* iovcnt */ regs->regs_R[MD_REG_A2]; i++)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, ( /*iov */ regs->regs_R[MD_REG_A1] + i * sizeof (struct osf_iovec)), &osf_iov[i], sizeof (struct osf_iovec), current->id);
+./syscall_old.c:		/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		    readv ( /* fd */ (int) regs->regs_R[MD_REG_A0], iov,
+./syscall_old.c:			   /* iovcnt */ (size_t) regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    while ( /*result */ regs->regs_R[MD_REG_V0] == (qword_t) - 1
+./syscall_old.c:	    for (i = 0; i < /* iovcnt */ regs->regs_R[MD_REG_A2]; i++)
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    for (i = 0; i < /* iovcnt */ regs->regs_R[MD_REG_A2]; i++)
+./syscall_old.c:	    if ( /* optval */ regs->regs_R[MD_REG_A3] != 0
+./syscall_old.c:		&& /* optlen */ regs->regs_R[MD_REG_A4] != 0)
+./syscall_old.c:		buf = calloc (1, /* optlen */ (size_t) regs->regs_R[MD_REG_A4]);
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, /* optval */ regs->regs_R[MD_REG_A3], buf, /* optlen */ (int) regs->regs_R[MD_REG_A4], current->id);
+./syscall_old.c:	    if ((int) regs->regs_R[MD_REG_A1] == OSF_SOL_SOCKET)
+./syscall_old.c:	    else if ((int) regs->regs_R[MD_REG_A1] == OSF_SOL_TCP)
+./syscall_old.c:		warn ("no translation map available for `setsockopt()': %d", (int) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		setsockopt ( /* sock */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:			    /* level */ xlate_arg ((int) regs->regs_R[MD_REG_A1],
+./syscall_old.c:			    /* optname */ xlate_arg ((int) regs->regs_R[MD_REG_A2],
+./syscall_old.c:			    /* optlen */ regs->regs_R[MD_REG_A4]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, /* paddrlen */ regs->regs_R[MD_REG_A2], &osf_addrlen, sizeof (osf_addrlen), current->id);
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		getsockname ( /* sock */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, /* addr */ regs->regs_R[MD_REG_A1], buf, addrlen, current->id);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /* paddrlen */ regs->regs_R[MD_REG_A2], &osf_addrlen, sizeof (osf_addrlen), current->id);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Read, /* paddrlen */ regs->regs_R[MD_REG_A2], &osf_addrlen, sizeof (osf_addrlen), current->id);
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		getpeername ( /* sock */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, /* addr */ regs->regs_R[MD_REG_A1], buf, addrlen, current->id);
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /* paddrlen */ regs->regs_R[MD_REG_A2], &osf_addrlen, sizeof (osf_addrlen), current->id);
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    setgid ( /* gid */ (gid_t) regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    setuid ( /* uid */ (uid_t) regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    getpriority ( /* which */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:			 /* who */ (int) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    setpriority ( /* which */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:			 /* who */ (int) regs->regs_R[MD_REG_A1],
+./syscall_old.c:			 /* prio */ (int) regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    if ( /* readfds */ regs->regs_R[MD_REG_A1] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, /* readfds */ regs->regs_R[MD_REG_A1], &readfd, sizeof (fd_set), current->id);
+./syscall_old.c:	    if ( /* writefds */ regs->regs_R[MD_REG_A2] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, /* writefds */ regs->regs_R[MD_REG_A2], &writefd, sizeof (fd_set), current->id);
+./syscall_old.c:	    if ( /* exceptfds */ regs->regs_R[MD_REG_A3] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, /* exceptfds */ regs->regs_R[MD_REG_A3], &exceptfd, sizeof (fd_set), current->id);
+./syscall_old.c:	    if ( /* timeout */ regs->regs_R[MD_REG_A4] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, /* timeout */ regs->regs_R[MD_REG_A4], &timeout, sizeof (struct timeval), current->id);
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		select ( /* nfds */ regs->regs_R[MD_REG_A0],
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		select ( /* nfds */ regs->regs_R[MD_REG_A0],
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    if ( /* readfds */ regs->regs_R[MD_REG_A1] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, /* readfds */ regs->regs_R[MD_REG_A1], &readfd, sizeof (fd_set), current->id);
+./syscall_old.c:	    if ( /* writefds */ regs->regs_R[MD_REG_A2] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, /* writefds */ regs->regs_R[MD_REG_A2], &writefd, sizeof (fd_set), current->id);
+./syscall_old.c:	    if ( /* exceptfds */ regs->regs_R[MD_REG_A3] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, /* exceptfds */ regs->regs_R[MD_REG_A3], &exceptfd, sizeof (fd_set), current->id);
+./syscall_old.c:	    if ( /* timeout */ regs->regs_R[MD_REG_A4] != 0)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, /* timeout */ regs->regs_R[MD_REG_A4], &timeout, sizeof (struct timeval), current->id);
+./syscall_old.c:	/*result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:	    shutdown ( /* sock */ (int) regs->regs_R[MD_REG_A0],
+./syscall_old.c:		      /* how */ (int) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    fds = calloc ( /* nfds */ regs->regs_R[MD_REG_A1], sizeof (struct pollfd));
+./syscall_old.c:	    for (i = 0; i < /* nfds */ regs->regs_R[MD_REG_A1]; i++)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Read, ( /* fds */ regs->regs_R[MD_REG_A0] + i * sizeof (struct pollfd)), &fds[i], sizeof (struct pollfd), current->id);
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:		      /* nfds */ (unsigned long) regs->regs_R[MD_REG_A1],
+./syscall_old.c:		      /* timeout */ (int) regs->regs_R[MD_REG_A2]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    for (i = 0; i < /* nfds */ regs->regs_R[MD_REG_A1]; i++)
+./syscall_old.c:		mem_bcopy (mem_fn, mem, Write, ( /* fds */ regs->regs_R[MD_REG_A0] + i * sizeof (struct pollfd)), &fds[i], sizeof (struct pollfd), current->id);
+./syscall_old.c:	fprintf (stderr, "usleep(%d)\n", (unsigned int) regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = usleep ((unsigned int) regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	usleep ((unsigned int) regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	    buf = malloc ( /* len */ (size_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    /* result */ regs->regs_R[MD_REG_V0] =
+./syscall_old.c:			     /* len */ (size_t) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	    if (regs->regs_R[MD_REG_V0] != (qword_t) - 1)
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = errno;
+./syscall_old.c:	    mem_bcopy (mem_fn, mem, Write, /* name */ regs->regs_R[MD_REG_A0], buf, /* len */ regs->regs_R[MD_REG_A1], current->id);
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A4] = 0;
+./syscall_old.c://              regs->regs_R[MD_REG_V0] = current->id;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = current->actualid;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	//              regs->regs_R[MD_REG_A4] = 0;
+./syscall_old.c://      fprintf(stderr, "printf %d...%d\n", current->id, regs->regs_R[MD_REG_A0]);      
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    collect_stats = regs->regs_R[MD_REG_A0];
+./syscall_old.c:            current->startReached  = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	    collect_stats = regs->regs_R[MD_REG_A0];
+./syscall_old.c:            current->startReached  = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	fastfwd = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	collect_barrier_stats_own[current->id] = regs->regs_R[MD_REG_A0];
+./syscall_old.c:		barrier_addr = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	collect_lock_stats[current->id] = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	if (regs->regs_R[MD_REG_A0] == 1)
+./syscall_old.c:	else if (regs->regs_R[MD_REG_A0] == 0)
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	    regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = 1;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:		regs->regs_R[MD_REG_V0] = -1;
+./syscall_old.c:		regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	lock_addr[current->id][lock_tail[current->id]] = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	printf("threadid %d, lock addr %u\n", current->id, regs->regs_R[MD_REG_A0]);
+./syscall_old.c:		Barrier_flag[regs->regs_R[MD_REG_A0]] = 1;
+./syscall_old.c:			Barrier_flag[regs->regs_R[MD_REG_A0]] = 1;
+./syscall_old.c:		//Lock_id = (regs->regs_R[MD_REG_A0]>>4)%MAXLOCK;
+./syscall_old.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall_old.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall_old.c:		//Lock_id = (regs->regs_R[MD_REG_A0]>>4)%MAXLOCK;
+./syscall_old.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall_old.c:		Lock_id = regs->regs_R[MD_REG_A0];
+./syscall_old.c:/*		fprintf(stderr, "Thread %d is sleeping on %llx\n", current->id, regs->regs_R[MD_REG_A0]);
+./syscall_old.c:	    quiesceAddrStruct[current->id].address = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = random ();
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	access_mem = regs->regs_R[MD_REG_A0];
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	AddToTheSharedAddrList ((unsigned long long) regs->regs_R[MD_REG_A0], (unsigned int) regs->regs_R[MD_REG_A1]);
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = 0;
+./syscall_old.c:	warn ("invalid/unimplemented syscall %ld, PC=0x%08p, RA=0x%08p, winging it", syscode, regs->regs_PC, regs->regs_R[MD_REG_RA]);
+./syscall_old.c:	regs->regs_R[MD_REG_A3] = -1;
+./syscall_old.c:	regs->regs_R[MD_REG_V0] = 0;

@@ -1,0 +1,9 @@
+file ~/huarzail/CMP_POPNET/CMP/PMS_trace/cmp0/sim-outorder 
+set args        -redir:sim ./result/test_fastsort.txt \
+       	-redir:dump ./result/test_fastsort.txt.out \
+      	-flow_trace ../trace/flow_fastsort_1.txt \
+       	-router_trace ../trace/router_fastsort_1.txt \
+      	-cpu:trace ../trace/cpu_fastsort_1.txt \
+       	-L2:trace ../trace/L2_fastsort_1.txt \
+       	-config ./config_mesh_ooo_xy_org \
+	    -max:barrier 0 -max:inst 100000000000 hello.BNC

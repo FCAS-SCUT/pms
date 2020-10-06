@@ -1,0 +1,157 @@
+#include "mess_queue.h"
+#include "sim_foundation.h"
+#include <string>
+#include <iostream>
+#include <strstream>
+#include <unistd.h>
+#include "main.h"
+#include "index.h"
+
+long counter;	
+
+bool operator<(const mess_event & a, const mess_event & b) {
+	return a.event_start() < b.event_start();
+}
+
+mess_queue * mess_queue::m_pointer_ = 0;
+
+mess_queue::mess_queue(time_type start_time):
+    current_time_(0),
+	last_time_(0),
+	mess_counter_(0),
+	m_q_(),
+	id_(0),//zl
+	total_finished_(0)
+{
+	current_time_ = start_time;
+	m_pointer_ = this;
+	add_message(mess_event(0, ROUTER_));
+}
+
+string mess_queue:: mess_error_ = 
+	string("This message type is not supported.\n");
+
+void mess_queue::simulator() {
+
+	time_type report_t = 0;
+	long total_incoming = 0;
+	counter = 0;	
+    long n = 0;	
+    int i;
+	
+	//when mess queue is not empty and simulation deadline has not reach  zl
+	while(m_q_.size() > 0 ) {
+
+		mess_event current_message = * get_message();
+		current_time_ = current_message.event_start();
+
+		if(current_time_ > report_t) {
+		   cout<<"Current time: "<<current_time_<<" Incoming packets"
+			   <<total_incoming<<" Finished packets"<<total_finished_<<endl;
+		   sim_foundation::wsf().simulation_results();
+		   report_t += REPORT_PERIOD_;
+		}
+				 
+		remove_top_message();
+		switch(current_message.event_type()) {
+
+			case EVG_ :
+				sim_foundation::wsf().receive_EVG_message(current_message);
+				total_incoming ++;
+			break;
+
+			case ROUTER_ :
+				sim_foundation::wsf().receive_ROUTER_message(current_message);
+			break;
+
+			case WIRE_ :
+				sim_foundation::wsf().receive_WIRE_message(current_message);
+			break;
+
+			case CREDIT_ :
+				sim_foundation::wsf().receive_CREDIT_message(current_message);
+			break;
+
+			default:
+				throw pro_error(mess_error_);
+			break;
+		} 
+		
+		/******zl*******/
+		counter++;
+		while (counter == 10000 ){	
+			readpackage();
+			counter = 0;
+		}
+
+	
+	/*	while(n % 1000 == 0){
+			//readpackage();
+			fstream	sync_net ("../../sync_net.txt");
+		//fstream	sync_net_1 ("../../sync_net_1.txt");
+		//fstream	sync_net_0 ("../../sync_net_0.txt");
+		//fstream	sync_net_2 ("../../sync_net_2.txt");
+		//fstream	sync_net_3 ("../../sync_net_3.txt");
+		while(sync_net_1 == NULL && sync_net_0 == NULL && sync_net_2 == NULL && sync_net_3 == NULL){
+			cout << "Sync is not ready!!";
+        	assert(0);
+		}
+		sync_net_0 << n;
+		sync_net_1 << n;
+		sync_net_2 << n;
+		sync_net_3 << n;
+
+		sync_net_0.close();
+		sync_net_1.close();
+		sync_net_2.close();
+		sync_net_3.close();
+		while(sync_net == NULL ){
+			cout << "Sync is not ready!!";
+        	assert(0);
+		}
+
+		sync_net << n;
+		sync_net.close();
+
+		while(sync(n)){;}
+		break;
+		}*/
+		n++;
+	
+    	}
+
+}
+void mess_queue::insertMsg(long long int sim_cycle, int src1, int src2, int dest1, int dest2, long id, long no )//zl
+{
+
+	add_type sor_addr_t;
+	add_type des_addr_t;
+	time_type event_time_t;
+	event_time_t = sim_cycle;
+	long ID;
+	int add;	
+	
+	ID = id;
+
+	sor_addr_t.resize(4);
+	des_addr_t.resize(4);
+	sor_addr_t[0] = src1;
+	sor_addr_t[1] = src2;
+	des_addr_t[0] = dest1;
+	des_addr_t[1] = dest2;
+
+	add = src1 * 2 + src2 + dest1 * 2 + dest2;
+	
+	
+	if (find( L.begin( ), L.end( ), pair<long,int>(id,add) ) == L.end())
+	//if (find( L.begin( ), L.end( ), ID ) == L.end())
+	{
+		mess_queue::wm_pointer().add_message(mess_event(event_time_t, EVG_, sor_addr_t, des_addr_t, ID));
+		//L.push_back(ID);
+		L.push_back(make_pair<long,int>(id,add));
+	}
+		
+	mess_queue::wm_pointer().regid();	
+	
+}
+
